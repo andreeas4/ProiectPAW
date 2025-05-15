@@ -1,0 +1,117 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProiectPAW
+{
+    class Produs:IComparable,ICloneable
+    {
+        private int codProdus;
+        private string numeProdus;
+        private double pret;
+        private double cant;
+        private DateTime dataProductie;
+
+        public List<IngredientProdus> ingrediente;
+
+
+        public string NumeProdus { get => numeProdus; set => numeProdus = value; }
+        public int CodProdus { get => codProdus; set => codProdus = value; }
+        public double Pret { get => pret; set => pret = value; }
+        public double Cant { get => cant; set => cant = value; }
+        public DateTime DataProductie { get => dataProductie; set => dataProductie = value; }
+        
+
+        public Produs()
+        {
+            codProdus = 0;
+            numeProdus = "Necunoscut";
+            pret = 0.0f;
+            cant = 0.0f;
+            dataProductie = DateTime.MinValue;
+            ingrediente = new List<IngredientProdus>();
+
+        }
+        public Produs(Produs produs)
+        {
+            this.codProdus= produs.codProdus;
+            this.numeProdus= produs.numeProdus;
+            this.pret = produs.pret;
+            this.cant = produs.cant;
+            this.DataProductie = produs.DataProductie;
+            this.ingrediente = new List<IngredientProdus>(produs.ingrediente);
+
+        }
+
+        public Produs(int codProdus, string numeProdus, double pret, double cant, DateTime dataProductie, List<IngredientProdus> ingrediente)
+        {
+            this.codProdus = codProdus;
+            this.numeProdus = numeProdus;
+            this.pret = pret;
+            this.cant = cant;
+            this.dataProductie = dataProductie;
+            this.ingrediente = new List<IngredientProdus>(ingrediente);
+
+        }
+
+        public void modificaDenumire(string denum)
+        {
+            numeProdus= denum;
+        }
+       
+        public void AdaugaIngredient(IngredientProdus i)
+        {
+            if (i != null)
+            {
+                ingrediente.Add(i);
+            }
+        }
+        public object Clone()
+        {
+            Produs clona = (Produs)this.MemberwiseClone();
+            clona.ingrediente = new List<IngredientProdus>(this.ingrediente); // Copiere profundă a listei
+            return clona;
+        }
+
+
+        public int CompareTo(object obj)
+        {
+            if (obj == null) return 1;
+            if (!(obj is Produs)) throw new ArgumentException("Obiectul nu este un produs.");
+
+            Produs otherProdus = (Produs)obj;
+
+            double thisValue = this.cant * this.pret;
+            double otherValue = otherProdus.cant * otherProdus.pret;
+
+            return thisValue.CompareTo(otherValue);
+        }
+
+       
+        public override string ToString()
+        {
+            string ingredienteStr;
+            if (ingrediente.Count > 0)
+            {
+                ingredienteStr = string.Join(", ", ingrediente);
+            }
+            else
+            {
+                ingredienteStr = "Fără ingrediente";
+            }
+            return $"------------------------------\n" +
+           $" Produs: {numeProdus} \n" +
+           $" Cod: {codProdus} \n" +
+           $" Pret: {pret} lei \n" +
+           $" Cantitate: {cant} kg \n" +
+           $" Data Productie: {dataProductie.ToShortDateString()} \n" +
+           $" Ingrediente:\n  - {ingredienteStr}\n" +
+           $"------------------------------";
+        }
+
+        //---------------trebuie sa fac un icalculable unde sa calculez pretul produsului din costul materiei prima consumate +profit default prcent
+    }
+}
