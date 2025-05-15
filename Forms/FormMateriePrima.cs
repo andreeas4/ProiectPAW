@@ -140,8 +140,8 @@ namespace ProiectPAW
                     m = new MateriePrimaLichida(nume, um, cost, vascozitate);
                 }
 
-                materiiPrime.Add(m);
-                MessageBox.Show($"Ai adăugat: {m}");
+				DataManager.Instance.AdaugaMateriePrima(m);
+				MessageBox.Show($"Ai adăugat: {m}");
                 MateriiPrimeLb.Items.Add(m.ToString());
 
                 // Curățăm câmpurile

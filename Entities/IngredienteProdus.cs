@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProiectPAW
 {
-    internal class IngredientProdus
+   public class IngredientProdus
     {
         public Materieprima Materie { get; set; }  // Materia primă
         public double Cantitate { get; set; }      // Cantitatea folosită din materia primă
@@ -16,6 +16,20 @@ namespace ProiectPAW
             Materie = materie;
             Cantitate = cantitate;
         }
-	
+
+		public override string ToString()
+		{
+			return base.ToString();
+		}
+
+		public override bool Equals(object obj)
+		{
+			return base.Equals(obj);
+		}
+
+		public override int GetHashCode()
+		{
+			return base.GetHashCode();
+		}
 	}
 }

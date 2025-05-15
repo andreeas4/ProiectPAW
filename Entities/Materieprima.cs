@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProiectPAW
 {
-    internal abstract class Materieprima
+    public abstract class Materieprima
     {
         protected Materieprima(string nume, string um, double cost)
         {

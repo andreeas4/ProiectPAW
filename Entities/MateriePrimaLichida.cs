@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProiectPAW
 {
-    internal class MateriePrimaLichida : Materieprima
+    public class MateriePrimaLichida : Materieprima
     {
 
         public double vascozitate { get; set; } // Minim 1 cP (apa), maxim 3000 cP (miere)

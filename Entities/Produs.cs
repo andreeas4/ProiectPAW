@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace ProiectPAW
 {
-    class Produs:IComparable,ICloneable
+    class Produs:IComparable,ICloneable,ICalculable
     {
         private int codProdus;
         private string numeProdus;
         private double pret;
         private double cant;
         private DateTime dataProductie;
-
-        public List<IngredientProdus> ingrediente;
+		private double procentProfit = 20.0;
+		public List<IngredientProdus> ingrediente;
 
 
         public string NumeProdus { get => numeProdus; set => numeProdus = value; }
@@ -89,9 +89,14 @@ namespace ProiectPAW
 
             return thisValue.CompareTo(otherValue);
         }
+		public double CalculeazaPretFinal(double procentProfit)
+		{
+			double costTotal = ingrediente.Sum(i => i.Cantitate * i.Materie.cost);
+			return costTotal * (1 + procentProfit / 100.0);
+		}
 
-       
-        public override string ToString()
+
+		public override string ToString()
         {
             string ingredienteStr;
             if (ingrediente.Count > 0)

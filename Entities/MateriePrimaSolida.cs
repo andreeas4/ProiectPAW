@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProiectPAW
 {
-    internal class MateriePrimaSolida:Materieprima
+    public class MateriePrimaSolida:Materieprima
     {
         public double densitate;
 
