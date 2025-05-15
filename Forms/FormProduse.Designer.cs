@@ -30,24 +30,24 @@
         {
 			this.components = new System.ComponentModel.Container();
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.AdaugaProdus = new System.Windows.Forms.Button();
+			this.label6 = new System.Windows.Forms.Label();
+			this.CalculPretFinalTb = new System.Windows.Forms.TextBox();
+			this.label5 = new System.Windows.Forms.Label();
+			this.label4 = new System.Windows.Forms.Label();
+			this.label3 = new System.Windows.Forms.Label();
+			this.label2 = new System.Windows.Forms.Label();
+			this.label1 = new System.Windows.Forms.Label();
+			this.DataProductiePicker = new System.Windows.Forms.DateTimePicker();
+			this.PretTb = new System.Windows.Forms.TextBox();
+			this.CantitateTb = new System.Windows.Forms.TextBox();
+			this.NumeProdusTb = new System.Windows.Forms.TextBox();
+			this.CodprodusTb = new System.Windows.Forms.TextBox();
+			this.AdaugaIngredienteButton = new System.Windows.Forms.Button();
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.editareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.ExitButton = new System.Windows.Forms.Button();
-			this.AdaugaIngredienteButton = new System.Windows.Forms.Button();
-			this.CodprodusTb = new System.Windows.Forms.TextBox();
-			this.NumeProdusTb = new System.Windows.Forms.TextBox();
-			this.CantitateTb = new System.Windows.Forms.TextBox();
-			this.PretTb = new System.Windows.Forms.TextBox();
-			this.DataProductiePicker = new System.Windows.Forms.DateTimePicker();
-			this.label1 = new System.Windows.Forms.Label();
-			this.label2 = new System.Windows.Forms.Label();
-			this.label3 = new System.Windows.Forms.Label();
-			this.label4 = new System.Windows.Forms.Label();
-			this.label5 = new System.Windows.Forms.Label();
-			this.CalculPretFinalTb = new System.Windows.Forms.TextBox();
-			this.label6 = new System.Windows.Forms.Label();
 			this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-			this.AdaugaProdus = new System.Windows.Forms.Button();
 			this.ProduseLv = new System.Windows.Forms.ListView();
 			this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -79,8 +79,139 @@
 			this.panel1.Controls.Add(this.AdaugaIngredienteButton);
 			this.panel1.Location = new System.Drawing.Point(-2, -2);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(470, 565);
+			this.panel1.Size = new System.Drawing.Size(470, 711);
 			this.panel1.TabIndex = 0;
+			// 
+			// AdaugaProdus
+			// 
+			this.AdaugaProdus.Font = new System.Drawing.Font("Lucida Console", 10.2F, System.Drawing.FontStyle.Bold);
+			this.AdaugaProdus.Location = new System.Drawing.Point(77, 523);
+			this.AdaugaProdus.Name = "AdaugaProdus";
+			this.AdaugaProdus.Size = new System.Drawing.Size(239, 44);
+			this.AdaugaProdus.TabIndex = 13;
+			this.AdaugaProdus.Text = "Adauga";
+			this.AdaugaProdus.UseVisualStyleBackColor = true;
+			this.AdaugaProdus.Click += new System.EventHandler(this.AdaugaProdus_Click);
+			// 
+			// label6
+			// 
+			this.label6.AutoSize = true;
+			this.label6.Font = new System.Drawing.Font("Lucida Console", 10.2F);
+			this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+			this.label6.Location = new System.Drawing.Point(33, 448);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(268, 17);
+			this.label6.TabIndex = 12;
+			this.label6.Text = "Pretul final al produsului";
+			// 
+			// CalculPretFinalTb
+			// 
+			this.CalculPretFinalTb.Location = new System.Drawing.Point(320, 445);
+			this.CalculPretFinalTb.Name = "CalculPretFinalTb";
+			this.CalculPretFinalTb.ReadOnly = true;
+			this.CalculPretFinalTb.Size = new System.Drawing.Size(91, 22);
+			this.CalculPretFinalTb.TabIndex = 11;
+			// 
+			// label5
+			// 
+			this.label5.AutoSize = true;
+			this.label5.Font = new System.Drawing.Font("Lucida Console", 10.2F);
+			this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+			this.label5.Location = new System.Drawing.Point(3, 290);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(148, 17);
+			this.label5.TabIndex = 10;
+			this.label5.Text = "Data Productie";
+			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Font = new System.Drawing.Font("Lucida Console", 10.2F);
+			this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+			this.label4.Location = new System.Drawing.Point(53, 244);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(98, 17);
+			this.label4.TabIndex = 9;
+			this.label4.Text = "Cantitate";
+			// 
+			// label3
+			// 
+			this.label3.AutoSize = true;
+			this.label3.Font = new System.Drawing.Font("Lucida Console", 10.2F);
+			this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+			this.label3.Location = new System.Drawing.Point(103, 196);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(48, 17);
+			this.label3.TabIndex = 8;
+			this.label3.Text = "Pret";
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Font = new System.Drawing.Font("Lucida Console", 10.2F);
+			this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+			this.label2.Location = new System.Drawing.Point(33, 145);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(118, 17);
+			this.label2.TabIndex = 7;
+			this.label2.Text = "Nume Produs";
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Font = new System.Drawing.Font("Lucida Console", 10.2F);
+			this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+			this.label1.Location = new System.Drawing.Point(43, 97);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(108, 17);
+			this.label1.TabIndex = 6;
+			this.label1.Text = "Cod Produs";
+			// 
+			// DataProductiePicker
+			// 
+			this.DataProductiePicker.Location = new System.Drawing.Point(168, 285);
+			this.DataProductiePicker.Name = "DataProductiePicker";
+			this.DataProductiePicker.Size = new System.Drawing.Size(243, 22);
+			this.DataProductiePicker.TabIndex = 5;
+			// 
+			// PretTb
+			// 
+			this.PretTb.Location = new System.Drawing.Point(168, 191);
+			this.PretTb.Name = "PretTb";
+			this.PretTb.Size = new System.Drawing.Size(58, 22);
+			this.PretTb.TabIndex = 4;
+			// 
+			// CantitateTb
+			// 
+			this.CantitateTb.Location = new System.Drawing.Point(168, 239);
+			this.CantitateTb.Name = "CantitateTb";
+			this.CantitateTb.Size = new System.Drawing.Size(58, 22);
+			this.CantitateTb.TabIndex = 3;
+			// 
+			// NumeProdusTb
+			// 
+			this.NumeProdusTb.Location = new System.Drawing.Point(168, 145);
+			this.NumeProdusTb.Name = "NumeProdusTb";
+			this.NumeProdusTb.Size = new System.Drawing.Size(243, 22);
+			this.NumeProdusTb.TabIndex = 2;
+			// 
+			// CodprodusTb
+			// 
+			this.CodprodusTb.Location = new System.Drawing.Point(168, 97);
+			this.CodprodusTb.Name = "CodprodusTb";
+			this.CodprodusTb.Size = new System.Drawing.Size(58, 22);
+			this.CodprodusTb.TabIndex = 1;
+			// 
+			// AdaugaIngredienteButton
+			// 
+			this.AdaugaIngredienteButton.Font = new System.Drawing.Font("Lucida Console", 10.2F, System.Drawing.FontStyle.Bold);
+			this.AdaugaIngredienteButton.Location = new System.Drawing.Point(77, 351);
+			this.AdaugaIngredienteButton.Name = "AdaugaIngredienteButton";
+			this.AdaugaIngredienteButton.Size = new System.Drawing.Size(239, 43);
+			this.AdaugaIngredienteButton.TabIndex = 0;
+			this.AdaugaIngredienteButton.Text = "Adauga ingrediente";
+			this.AdaugaIngredienteButton.UseVisualStyleBackColor = true;
+			this.AdaugaIngredienteButton.Click += new System.EventHandler(this.AdaugaIngredienteButton_Click);
 			// 
 			// menuStrip1
 			// 
@@ -117,140 +248,9 @@
 			this.ExitButton.UseVisualStyleBackColor = false;
 			this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
 			// 
-			// AdaugaIngredienteButton
-			// 
-			this.AdaugaIngredienteButton.Font = new System.Drawing.Font("Lucida Console", 10.2F, System.Drawing.FontStyle.Bold);
-			this.AdaugaIngredienteButton.Location = new System.Drawing.Point(77, 309);
-			this.AdaugaIngredienteButton.Name = "AdaugaIngredienteButton";
-			this.AdaugaIngredienteButton.Size = new System.Drawing.Size(239, 50);
-			this.AdaugaIngredienteButton.TabIndex = 0;
-			this.AdaugaIngredienteButton.Text = "Adauga ingrediente";
-			this.AdaugaIngredienteButton.UseVisualStyleBackColor = true;
-			this.AdaugaIngredienteButton.Click += new System.EventHandler(this.AdaugaIngredienteButton_Click);
-			// 
-			// CodprodusTb
-			// 
-			this.CodprodusTb.Location = new System.Drawing.Point(168, 85);
-			this.CodprodusTb.Name = "CodprodusTb";
-			this.CodprodusTb.Size = new System.Drawing.Size(58, 22);
-			this.CodprodusTb.TabIndex = 1;
-			// 
-			// NumeProdusTb
-			// 
-			this.NumeProdusTb.Location = new System.Drawing.Point(168, 126);
-			this.NumeProdusTb.Name = "NumeProdusTb";
-			this.NumeProdusTb.Size = new System.Drawing.Size(243, 22);
-			this.NumeProdusTb.TabIndex = 2;
-			// 
-			// CantitateTb
-			// 
-			this.CantitateTb.Location = new System.Drawing.Point(168, 214);
-			this.CantitateTb.Name = "CantitateTb";
-			this.CantitateTb.Size = new System.Drawing.Size(58, 22);
-			this.CantitateTb.TabIndex = 3;
-			// 
-			// PretTb
-			// 
-			this.PretTb.Location = new System.Drawing.Point(168, 167);
-			this.PretTb.Name = "PretTb";
-			this.PretTb.Size = new System.Drawing.Size(58, 22);
-			this.PretTb.TabIndex = 4;
-			// 
-			// DataProductiePicker
-			// 
-			this.DataProductiePicker.Location = new System.Drawing.Point(168, 257);
-			this.DataProductiePicker.Name = "DataProductiePicker";
-			this.DataProductiePicker.Size = new System.Drawing.Size(243, 22);
-			this.DataProductiePicker.TabIndex = 5;
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("Lucida Console", 10.2F);
-			this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.label1.Location = new System.Drawing.Point(41, 90);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(108, 17);
-			this.label1.TabIndex = 6;
-			this.label1.Text = "Cod Produs";
-			// 
-			// label2
-			// 
-			this.label2.AutoSize = true;
-			this.label2.Font = new System.Drawing.Font("Lucida Console", 10.2F);
-			this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.label2.Location = new System.Drawing.Point(33, 131);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(118, 17);
-			this.label2.TabIndex = 7;
-			this.label2.Text = "Nume Produs";
-			// 
-			// label3
-			// 
-			this.label3.AutoSize = true;
-			this.label3.Font = new System.Drawing.Font("Lucida Console", 10.2F);
-			this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.label3.Location = new System.Drawing.Point(103, 172);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(48, 17);
-			this.label3.TabIndex = 8;
-			this.label3.Text = "Pret";
-			// 
-			// label4
-			// 
-			this.label4.AutoSize = true;
-			this.label4.Font = new System.Drawing.Font("Lucida Console", 10.2F);
-			this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.label4.Location = new System.Drawing.Point(53, 217);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(98, 17);
-			this.label4.TabIndex = 9;
-			this.label4.Text = "Cantitate";
-			// 
-			// label5
-			// 
-			this.label5.AutoSize = true;
-			this.label5.Font = new System.Drawing.Font("Lucida Console", 10.2F);
-			this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.label5.Location = new System.Drawing.Point(3, 262);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(148, 17);
-			this.label5.TabIndex = 10;
-			this.label5.Text = "Data Productie";
-			// 
-			// CalculPretFinalTb
-			// 
-			this.CalculPretFinalTb.Location = new System.Drawing.Point(320, 389);
-			this.CalculPretFinalTb.Name = "CalculPretFinalTb";
-			this.CalculPretFinalTb.ReadOnly = true;
-			this.CalculPretFinalTb.Size = new System.Drawing.Size(91, 22);
-			this.CalculPretFinalTb.TabIndex = 11;
-			// 
-			// label6
-			// 
-			this.label6.AutoSize = true;
-			this.label6.Font = new System.Drawing.Font("Lucida Console", 10.2F);
-			this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.label6.Location = new System.Drawing.Point(14, 392);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(268, 17);
-			this.label6.TabIndex = 12;
-			this.label6.Text = "Pretul final al produsului";
-			// 
 			// errorProvider1
 			// 
 			this.errorProvider1.ContainerControl = this;
-			// 
-			// AdaugaProdus
-			// 
-			this.AdaugaProdus.Font = new System.Drawing.Font("Lucida Console", 10.2F, System.Drawing.FontStyle.Bold);
-			this.AdaugaProdus.Location = new System.Drawing.Point(77, 451);
-			this.AdaugaProdus.Name = "AdaugaProdus";
-			this.AdaugaProdus.Size = new System.Drawing.Size(239, 38);
-			this.AdaugaProdus.TabIndex = 13;
-			this.AdaugaProdus.Text = "Adauga";
-			this.AdaugaProdus.UseVisualStyleBackColor = true;
-			this.AdaugaProdus.Click += new System.EventHandler(this.AdaugaProdus_Click);
 			// 
 			// ProduseLv
 			// 
@@ -266,7 +266,7 @@
 			this.ProduseLv.HideSelection = false;
 			this.ProduseLv.Location = new System.Drawing.Point(496, 56);
 			this.ProduseLv.Name = "ProduseLv";
-			this.ProduseLv.Size = new System.Drawing.Size(645, 389);
+			this.ProduseLv.Size = new System.Drawing.Size(645, 611);
 			this.ProduseLv.TabIndex = 3;
 			this.ProduseLv.UseCompatibleStateImageBehavior = false;
 			// 

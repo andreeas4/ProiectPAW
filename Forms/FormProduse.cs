@@ -68,6 +68,7 @@ namespace ProiectPAW
 				MessageBox.Show($"Ai adăugat: {p}");
 
 				// Afișare în ListView
+				
 				var item = new ListViewItem(p.CodProdus.ToString());
 				item.SubItems.Add(p.NumeProdus);
 				item.SubItems.Add(p.Pret.ToString("0.00"));
