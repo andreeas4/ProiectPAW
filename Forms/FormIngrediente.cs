@@ -90,6 +90,7 @@ namespace ProiectPAW.Forms
 
 			};
 			
+
 			dataGridView1.Columns.Add(colCant);
 
 			

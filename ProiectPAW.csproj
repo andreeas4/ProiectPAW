@@ -52,23 +52,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataManager.cs" />
-    <Compile Include="Forms\AdaugaProduse.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\AdaugaProduse.Designer.cs">
-      <DependentUpon>AdaugaProduse.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\FormIngrediente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FormIngrediente.Designer.cs">
       <DependentUpon>FormIngrediente.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FormLotFabricatie.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FormLotFabricatie.Designer.cs">
-      <DependentUpon>FormLotFabricatie.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormMateriePrima.cs">
       <SubType>Form</SubType>
@@ -82,10 +70,15 @@
     <Compile Include="Forms\FormProduse.Designer.cs">
       <DependentUpon>FormProduse.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormStatistici.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormStatistici.Designer.cs">
+      <DependentUpon>FormStatistici.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\ICalculable.cs" />
     <Compile Include="Entities\IngredienteProdus.cs" />
     <Compile Include="Entities\Materieprima.cs" />
-    <Compile Include="Entities\LotFabricatie.cs" />
     <Compile Include="Entities\MateriePrimaLichida.cs" />
     <Compile Include="Entities\MateriePrimaSolida.cs" />
     <Compile Include="Forms\MeniuGestiuneProductie.cs">
@@ -107,20 +100,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Forms\AdaugaProduse.resx">
-      <DependentUpon>AdaugaProduse.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormIngrediente.resx">
       <DependentUpon>FormIngrediente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormLotFabricatie.resx">
-      <DependentUpon>FormLotFabricatie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormMateriePrima.resx">
       <DependentUpon>FormMateriePrima.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormProduse.resx">
       <DependentUpon>FormProduse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormStatistici.resx">
+      <DependentUpon>FormStatistici.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MeniuGestiuneProductie.resx">
       <DependentUpon>MeniuGestiuneProductie.cs</DependentUpon>

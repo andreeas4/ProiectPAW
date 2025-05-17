@@ -30,6 +30,7 @@
         {
 			this.components = new System.ComponentModel.Container();
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.SalveazaModificariButton = new System.Windows.Forms.Button();
 			this.AdaugaProdus = new System.Windows.Forms.Button();
 			this.label6 = new System.Windows.Forms.Label();
 			this.CalculPretFinalTb = new System.Windows.Forms.TextBox();
@@ -56,10 +57,10 @@
 			this.contextMenuProduse = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.stergeProdusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.editareProdusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.SalveazaModificariButton = new System.Windows.Forms.Button();
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.fisierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.salveazaProduseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.exportDatestatisticiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
 			this.contextMenuProduse.SuspendLayout();
@@ -88,6 +89,19 @@
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(470, 711);
 			this.panel1.TabIndex = 0;
+			// 
+			// SalveazaModificariButton
+			// 
+			this.SalveazaModificariButton.BackColor = System.Drawing.SystemColors.HighlightText;
+			this.SalveazaModificariButton.Font = new System.Drawing.Font("Lucida Console", 10.2F, System.Drawing.FontStyle.Bold);
+			this.SalveazaModificariButton.Location = new System.Drawing.Point(77, 583);
+			this.SalveazaModificariButton.Name = "SalveazaModificariButton";
+			this.SalveazaModificariButton.Size = new System.Drawing.Size(257, 43);
+			this.SalveazaModificariButton.TabIndex = 14;
+			this.SalveazaModificariButton.Text = "Salveaza modificari";
+			this.SalveazaModificariButton.UseVisualStyleBackColor = false;
+			this.SalveazaModificariButton.Visible = false;
+			this.SalveazaModificariButton.Click += new System.EventHandler(this.SalveazaModificariButton_Click);
 			// 
 			// AdaugaProdus
 			// 
@@ -316,19 +330,6 @@
 			this.editareProdusToolStripMenuItem.Text = "Editare produs";
 			this.editareProdusToolStripMenuItem.Click += new System.EventHandler(this.editareProdusToolStripMenuItem_Click);
 			// 
-			// SalveazaModificariButton
-			// 
-			this.SalveazaModificariButton.BackColor = System.Drawing.SystemColors.HighlightText;
-			this.SalveazaModificariButton.Font = new System.Drawing.Font("Lucida Console", 10.2F, System.Drawing.FontStyle.Bold);
-			this.SalveazaModificariButton.Location = new System.Drawing.Point(77, 583);
-			this.SalveazaModificariButton.Name = "SalveazaModificariButton";
-			this.SalveazaModificariButton.Size = new System.Drawing.Size(257, 43);
-			this.SalveazaModificariButton.TabIndex = 14;
-			this.SalveazaModificariButton.Text = "Salveaza modificari";
-			this.SalveazaModificariButton.UseVisualStyleBackColor = false;
-			this.SalveazaModificariButton.Visible = false;
-			this.SalveazaModificariButton.Click += new System.EventHandler(this.SalveazaModificariButton_Click);
-			// 
 			// menuStrip1
 			// 
 			this.menuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -345,7 +346,8 @@
 			// fisierToolStripMenuItem
 			// 
 			this.fisierToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.salveazaProduseToolStripMenuItem});
+            this.salveazaProduseToolStripMenuItem,
+            this.exportDatestatisticiToolStripMenuItem});
 			this.fisierToolStripMenuItem.Font = new System.Drawing.Font("SimSun", 12.8F, System.Drawing.FontStyle.Bold);
 			this.fisierToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
 			this.fisierToolStripMenuItem.Name = "fisierToolStripMenuItem";
@@ -356,9 +358,16 @@
 			// 
 			this.salveazaProduseToolStripMenuItem.Font = new System.Drawing.Font("SimSun", 9.8F, System.Drawing.FontStyle.Bold);
 			this.salveazaProduseToolStripMenuItem.Name = "salveazaProduseToolStripMenuItem";
-			this.salveazaProduseToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
+			this.salveazaProduseToolStripMenuItem.Size = new System.Drawing.Size(332, 26);
 			this.salveazaProduseToolStripMenuItem.Text = "Salveaza produse";
 			this.salveazaProduseToolStripMenuItem.Click += new System.EventHandler(this.salveazaProduseToolStripMenuItem_Click);
+			// 
+			// exportDatestatisticiToolStripMenuItem
+			// 
+			this.exportDatestatisticiToolStripMenuItem.Font = new System.Drawing.Font("SimSun", 9.8F, System.Drawing.FontStyle.Bold);
+			this.exportDatestatisticiToolStripMenuItem.Name = "exportDatestatisticiToolStripMenuItem";
+			this.exportDatestatisticiToolStripMenuItem.Size = new System.Drawing.Size(332, 26);
+			this.exportDatestatisticiToolStripMenuItem.Text = "Export date (statistici)";
 			// 
 			// FormProduse
 			// 
@@ -420,5 +429,6 @@
 		private System.Windows.Forms.MenuStrip menuStrip1;
 		private System.Windows.Forms.ToolStripMenuItem fisierToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem salveazaProduseToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem exportDatestatisticiToolStripMenuItem;
 	}
 }

@@ -25,8 +25,7 @@ namespace ProiectPAW
 
         private void LotProduseButton_Click(object sender, EventArgs e)
         {
-            FormLotFabricatie formLotFabricatie = new FormLotFabricatie(); //LotFAbricatie=LotProduse
-            formLotFabricatie.ShowDialog();
+           
 
         }
 
@@ -45,5 +44,10 @@ namespace ProiectPAW
         {
             Application.Exit();
         }
-    }
+
+		private void StatisticiButton_Click(object sender, EventArgs e)
+		{
+
+		}
+	}
 }

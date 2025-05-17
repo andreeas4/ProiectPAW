@@ -17,19 +17,18 @@ namespace ProiectPAW
         // Listele pentru materii prime, produse și loturi de fabricație
         public List<Materieprima> MateriiPrime { get; private set; }
         public List<Produs> Produse { get; private set; }
-        public List<LotFabricatie> LoturiFabricatie { get; private set; }
+        
 		public List<IngredientProdus> IngredienteSelectate { get; private set; } = new List<IngredientProdus>();
+        public List<Produs> ProduseSelectate { get; private set; } = new List<Produs>();
 
 		private static Dictionary<string, Materieprima> hashMateriiPrime = new Dictionary<string, Materieprima>();
-		private static Dictionary<string, Produs> hashProduse = new Dictionary<string, Produs>();
+		private static Dictionary<(string,DateTime), Produs> hashProduse = new Dictionary<(string,DateTime), Produs>();
 		private DataManager()
         {
             MateriiPrime = new List<Materieprima>();
             Produse = new List<Produs>();
-            LoturiFabricatie = new List<LotFabricatie>();
 			IngredienteSelectate = new List<IngredientProdus>();
-
-
+			ProduseSelectate = new List<Produs>();
 		}
 
      
@@ -58,23 +57,23 @@ namespace ProiectPAW
 			}
         }
 
-        
-        public void AdaugaProdus(Produs produs)
+		public static Dictionary<(string, DateTime), Produs> HashProduse
+		{
+			get => hashProduse;
+			set => hashProduse = value;
+		}
+
+		public void AdaugaProdus(Produs produs)
         {
             if (produs != null)
             {
                 Produse.Add(produs);
-            }
+                hashProduse.Add((produs.NumeProdus, produs.DataProductie), produs);
+			}
         }
 
         
-        public void AdaugaLotFabricatie(LotFabricatie lotFabricatie)
-        {
-            if (lotFabricatie != null)
-            {
-                LoturiFabricatie.Add(lotFabricatie);
-            }
-        }
+        
 		public void AdaugaIngredient(IngredientProdus ingredient)
 		{
 			if (ingredient != null)
