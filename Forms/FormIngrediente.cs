@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Documents;
 using System.Windows.Forms;
 
 namespace ProiectPAW.Forms
@@ -30,41 +31,72 @@ namespace ProiectPAW.Forms
 
 		private void btnConfirm_Click_1(object sender, EventArgs e)
 		{
-			IngredienteSelectate.Clear();
-
+			
 			foreach (DataGridViewRow row in dataGridView1.Rows)
 			{
-				if (row.Cells["MateriePrima"].Value is Materieprima materie &&
-					double.TryParse(Convert.ToString(row.Cells["Cantitate"].Value), out double cantitate) &&
-					cantitate > 0)
+				if (row.IsNewRow) continue; // Sari peste rândul gol
+
+
+				MessageBox.Show(row.Cells[0].Value.ToString());
+
+				Materieprima materie = DataManager.HashMateriiPrime[row.Cells[0].Value.ToString()];
+
+
+
+				if (materie == null)
 				{
-					IngredienteSelectate.Add(new IngredientProdus(materie, cantitate));
+					MessageBox.Show("Selectați o materie primă validă.");
+					return;
 				}
+
+
+				if (!double.TryParse(row.Cells[1].Value?.ToString(), out double cantitate))
+				{
+					MessageBox.Show("Introduceți o cantitate validă.");
+					return;
+				}
+				IngredientProdus ingredient = new IngredientProdus(materie, cantitate);
+				IngredienteSelectate.Add(ingredient);
+				DataManager.Instance.AdaugaIngredient(ingredient);
+
+			}
+			
+			this.DialogResult = DialogResult.OK;
+			StringBuilder sb = new StringBuilder();
+			sb.AppendLine("Ingrediente selectate:");
+
+			foreach (var ing in DataManager.Instance.IngredienteSelectate)
+			{
+				sb.AppendLine($"- {ing.Materie.nume}: {ing.Cantitate} unități");
 			}
 
-			this.DialogResult = DialogResult.OK;
+			MessageBox.Show(sb.ToString(), "Listă Ingrediente", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			this.Close();
 		}
 
 		private void FormIngrediente_Load_1(object sender, EventArgs e)
 		{
 			var colMaterie = new DataGridViewComboBoxColumn
-			{
-				HeaderText = "Materie Primă",
-				Name = "MateriePrima",
+			{	HeaderText = "Materie Prima",
 				DataSource = DataManager.Instance.MateriiPrime,
 				DisplayMember = "Nume",
-				ValueMember = null // clasa directă
+				ValueMember = null
 			};
+			
+			
+			dataGridView1.Columns.Add(colMaterie);
 
-			var colCant = new DataGridViewTextBoxColumn
+			DataGridViewTextBoxColumn colCant = new DataGridViewTextBoxColumn
 			{
 				HeaderText = "Cantitate",
-				Name = "Cantitate"
-			};
+				
 
-			dataGridView1.Columns.Add(colMaterie);
+			};
+			
+
 			dataGridView1.Columns.Add(colCant);
+
+			
 		}
 	}
 }

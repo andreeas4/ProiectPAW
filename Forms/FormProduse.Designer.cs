@@ -98,7 +98,7 @@
 			this.label6.AutoSize = true;
 			this.label6.Font = new System.Drawing.Font("Lucida Console", 10.2F);
 			this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.label6.Location = new System.Drawing.Point(33, 448);
+			this.label6.Location = new System.Drawing.Point(14, 445);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(268, 17);
 			this.label6.TabIndex = 12;
@@ -117,7 +117,7 @@
 			this.label5.AutoSize = true;
 			this.label5.Font = new System.Drawing.Font("Lucida Console", 10.2F);
 			this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.label5.Location = new System.Drawing.Point(3, 290);
+			this.label5.Location = new System.Drawing.Point(3, 285);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(148, 17);
 			this.label5.TabIndex = 10;
@@ -128,7 +128,7 @@
 			this.label4.AutoSize = true;
 			this.label4.Font = new System.Drawing.Font("Lucida Console", 10.2F);
 			this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.label4.Location = new System.Drawing.Point(53, 244);
+			this.label4.Location = new System.Drawing.Point(53, 242);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(98, 17);
 			this.label4.TabIndex = 9;
@@ -139,7 +139,7 @@
 			this.label3.AutoSize = true;
 			this.label3.Font = new System.Drawing.Font("Lucida Console", 10.2F);
 			this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.label3.Location = new System.Drawing.Point(103, 196);
+			this.label3.Location = new System.Drawing.Point(92, 194);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(48, 17);
 			this.label3.TabIndex = 8;
@@ -150,7 +150,7 @@
 			this.label2.AutoSize = true;
 			this.label2.Font = new System.Drawing.Font("Lucida Console", 10.2F);
 			this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.label2.Location = new System.Drawing.Point(33, 145);
+			this.label2.Location = new System.Drawing.Point(33, 150);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(118, 17);
 			this.label2.TabIndex = 7;
@@ -224,6 +224,7 @@
 			this.menuStrip1.Size = new System.Drawing.Size(1163, 28);
 			this.menuStrip1.TabIndex = 1;
 			this.menuStrip1.Text = "menuStrip1";
+			this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
 			// 
 			// editareToolStripMenuItem
 			// 
