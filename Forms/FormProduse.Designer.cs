@@ -60,7 +60,6 @@
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.fisierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.salveazaProduseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.exportDatestatisticiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.CostMediuTb = new System.Windows.Forms.TextBox();
 			this.label7 = new System.Windows.Forms.Label();
 			this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -354,8 +353,7 @@
 			// fisierToolStripMenuItem
 			// 
 			this.fisierToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.salveazaProduseToolStripMenuItem,
-            this.exportDatestatisticiToolStripMenuItem});
+            this.salveazaProduseToolStripMenuItem});
 			this.fisierToolStripMenuItem.Font = new System.Drawing.Font("SimSun", 12.8F, System.Drawing.FontStyle.Bold);
 			this.fisierToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
 			this.fisierToolStripMenuItem.Name = "fisierToolStripMenuItem";
@@ -369,13 +367,6 @@
 			this.salveazaProduseToolStripMenuItem.Size = new System.Drawing.Size(332, 26);
 			this.salveazaProduseToolStripMenuItem.Text = "Salveaza produse";
 			this.salveazaProduseToolStripMenuItem.Click += new System.EventHandler(this.salveazaProduseToolStripMenuItem_Click);
-			// 
-			// exportDatestatisticiToolStripMenuItem
-			// 
-			this.exportDatestatisticiToolStripMenuItem.Font = new System.Drawing.Font("SimSun", 9.8F, System.Drawing.FontStyle.Bold);
-			this.exportDatestatisticiToolStripMenuItem.Name = "exportDatestatisticiToolStripMenuItem";
-			this.exportDatestatisticiToolStripMenuItem.Size = new System.Drawing.Size(332, 26);
-			this.exportDatestatisticiToolStripMenuItem.Text = "Export date (statistici)";
 			// 
 			// CostMediuTb
 			// 
@@ -467,7 +458,6 @@
 		private System.Windows.Forms.MenuStrip menuStrip1;
 		private System.Windows.Forms.ToolStripMenuItem fisierToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem salveazaProduseToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem exportDatestatisticiToolStripMenuItem;
 		private System.Windows.Forms.Label label7;
 		private System.Windows.Forms.TextBox CostMediuTb;
 		private System.Windows.Forms.ColumnHeader columnHeader7;

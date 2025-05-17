@@ -19,13 +19,13 @@ namespace ProiectPAW.Forms
 
 		bool vb = false;
 
-		const int marg = 20;
+		const int marg = 30;
 
 		Graphics gr;
 
 		Color culoare = Color.Blue;
 
-		Font font = new Font(FontFamily.GenericSansSerif, 12);
+		Font font = new Font(FontFamily.GenericSansSerif, 10);
 
 		public FormStatistici()
 		{
@@ -34,7 +34,7 @@ namespace ProiectPAW.Forms
 
 		private void FormStatistici_Load(object sender, EventArgs e)
 		{
-
+			System.Diagnostics.Debug.WriteLine($"FormStatistici_Load: Produse count: {DataManager.Instance.Produse.Count}");
 		}
 
 		private void button1_Click(object sender, EventArgs e)
@@ -48,12 +48,13 @@ namespace ProiectPAW.Forms
 
 			if (vb && costuriMedii != null && costuriMedii.Count > 0 && e.Graphics != null)
 			{
-				Rectangle dreptRosu = new Rectangle(panel1.ClientRectangle.X + marg,
+				Rectangle dreptRosu = new Rectangle(
+					panel1.ClientRectangle.X + marg,
 					panel1.ClientRectangle.Y + 2 * marg,
 					panel1.ClientRectangle.Width - 2 * marg,
 					panel1.ClientRectangle.Height - 3 * marg);
 
-				Pen pen = new Pen(Color.Red, 3);
+				Pen pen = new Pen(Color.Black, 3); // Changed from Red to Black
 				gr.DrawRectangle(pen, dreptRosu);
 
 				double latime = dreptRosu.Width / costuriMedii.Count / 2;
@@ -81,12 +82,7 @@ namespace ProiectPAW.Forms
 						recs[i].X, dreptRosu.Bottom + 5);
 				}
 
-				for (int i = 0; i < costuriMedii.Count - 1; i++)
-				{
-					gr.DrawLine(pen,
-						new Point(recs[i].X + recs[i].Width / 2, recs[i].Y),
-						new Point(recs[i + 1].X + recs[i + 1].Width / 2, recs[i + 1].Y));
-				}
+				// Removed DrawLine loop to eliminate lines between bars
 			}
 		}
 
@@ -97,14 +93,45 @@ namespace ProiectPAW.Forms
 
 			foreach (Produs p in DataManager.Instance.Produse)
 			{
-				p.CalculeazaCostProductie(); // asigură-te că e calculat
+				p.CalculeazaCostProductie();
 				costuriMedii.Add(p.CostMediu);
 				numeProduse.Add(p.NumeProdus);
+				System.Diagnostics.Debug.WriteLine($"Produs: {p.NumeProdus}, CostMediu: {p.CostMediu}");
 			}
 
 			vb = true;
-			panel1.Invalidate(); // redesenează graficul
+			panel1.Invalidate();
+
+			if (costuriMedii.Count == 0)
+			{
+				MessageBox.Show("Nu există produse pentru afișarea graficului. Adăugați produse mai întâi.", "Avertisment", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+			}
 		}
 
+		private void printToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				PrintDocument pd = new PrintDocument();
+				pd.PrintPage += new PrintPageEventHandler(PrintGraphPage);
+				PrintPreviewDialog preview = new PrintPreviewDialog();
+				preview.Document = pd;
+				preview.ShowDialog();
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show($"Eroare la previzualizarea imprimării: {ex.Message}", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
+		private void PrintGraphPage(object sender, PrintPageEventArgs e)
+		{
+			// Capture panel1 as a bitmap
+			Bitmap bmp = new Bitmap(panel1.Width, panel1.Height);
+			panel1.DrawToBitmap(bmp, new Rectangle(0, 0, panel1.Width, panel1.Height));
+
+			// Draw bitmap to printer graphics
+			e.Graphics.DrawImage(bmp, e.MarginBounds);
+			bmp.Dispose();
+		}
 	}
 }

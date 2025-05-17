@@ -32,6 +32,7 @@
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.incaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -49,6 +50,7 @@
 			// 
 			// panel1
 			// 
+			this.panel1.BackColor = System.Drawing.SystemColors.InactiveCaption;
 			this.panel1.Location = new System.Drawing.Point(12, 29);
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(1113, 524);
@@ -57,26 +59,40 @@
 			// 
 			// menuStrip1
 			// 
+			this.menuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
 			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.incaToolStripMenuItem});
+            this.incaToolStripMenuItem,
+            this.printToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(1137, 28);
+			this.menuStrip1.Size = new System.Drawing.Size(1137, 30);
 			this.menuStrip1.TabIndex = 2;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
 			// incaToolStripMenuItem
 			// 
+			this.incaToolStripMenuItem.Font = new System.Drawing.Font("SimSun", 12.8F, System.Drawing.FontStyle.Bold);
+			this.incaToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Highlight;
 			this.incaToolStripMenuItem.Name = "incaToolStripMenuItem";
-			this.incaToolStripMenuItem.Size = new System.Drawing.Size(104, 24);
+			this.incaToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
 			this.incaToolStripMenuItem.Text = "Incarca date";
 			this.incaToolStripMenuItem.Click += new System.EventHandler(this.incaToolStripMenuItem_Click);
+			// 
+			// printToolStripMenuItem
+			// 
+			this.printToolStripMenuItem.Font = new System.Drawing.Font("SimSun", 12.8F, System.Drawing.FontStyle.Bold);
+			this.printToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+			this.printToolStripMenuItem.Name = "printToolStripMenuItem";
+			this.printToolStripMenuItem.Size = new System.Drawing.Size(84, 26);
+			this.printToolStripMenuItem.Text = "Print";
+			this.printToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
 			// 
 			// FormStatistici
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.ClientSize = new System.Drawing.Size(1137, 565);
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.button1);
@@ -99,5 +115,6 @@
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.MenuStrip menuStrip1;
 		private System.Windows.Forms.ToolStripMenuItem incaToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem printToolStripMenuItem;
 	}
 }
