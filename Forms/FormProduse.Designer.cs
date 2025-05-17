@@ -105,11 +105,11 @@
 			this.label6.AutoSize = true;
 			this.label6.Font = new System.Drawing.Font("Lucida Console", 10.2F);
 			this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-			this.label6.Location = new System.Drawing.Point(14, 445);
+			this.label6.Location = new System.Drawing.Point(53, 448);
 			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(268, 17);
+			this.label6.Size = new System.Drawing.Size(238, 17);
 			this.label6.TabIndex = 12;
-			this.label6.Text = "Pretul final al produsului";
+			this.label6.Text = "Pretul final al lotului";
 			// 
 			// CalculPretFinalTb
 			// 
@@ -118,13 +118,14 @@
 			this.CalculPretFinalTb.ReadOnly = true;
 			this.CalculPretFinalTb.Size = new System.Drawing.Size(91, 22);
 			this.CalculPretFinalTb.TabIndex = 11;
+			this.CalculPretFinalTb.TextChanged += new System.EventHandler(this.CalculPretFinalTb_TextChanged);
 			// 
 			// label5
 			// 
 			this.label5.AutoSize = true;
 			this.label5.Font = new System.Drawing.Font("Lucida Console", 10.2F);
 			this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-			this.label5.Location = new System.Drawing.Point(3, 285);
+			this.label5.Location = new System.Drawing.Point(14, 285);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(148, 17);
 			this.label5.TabIndex = 10;
@@ -135,7 +136,7 @@
 			this.label4.AutoSize = true;
 			this.label4.Font = new System.Drawing.Font("Lucida Console", 10.2F);
 			this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-			this.label4.Location = new System.Drawing.Point(53, 242);
+			this.label4.Location = new System.Drawing.Point(63, 240);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(98, 17);
 			this.label4.TabIndex = 9;
@@ -146,18 +147,18 @@
 			this.label3.AutoSize = true;
 			this.label3.Font = new System.Drawing.Font("Lucida Console", 10.2F);
 			this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-			this.label3.Location = new System.Drawing.Point(92, 194);
+			this.label3.Location = new System.Drawing.Point(14, 194);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(48, 17);
+			this.label3.Size = new System.Drawing.Size(148, 17);
 			this.label3.TabIndex = 8;
-			this.label3.Text = "Pret";
+			this.label3.Text = "Cost productie";
 			// 
 			// label2
 			// 
 			this.label2.AutoSize = true;
 			this.label2.Font = new System.Drawing.Font("Lucida Console", 10.2F);
 			this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-			this.label2.Location = new System.Drawing.Point(33, 150);
+			this.label2.Location = new System.Drawing.Point(43, 150);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(118, 17);
 			this.label2.TabIndex = 7;
@@ -168,7 +169,7 @@
 			this.label1.AutoSize = true;
 			this.label1.Font = new System.Drawing.Font("Lucida Console", 10.2F);
 			this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-			this.label1.Location = new System.Drawing.Point(43, 97);
+			this.label1.Location = new System.Drawing.Point(53, 100);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(108, 17);
 			this.label1.TabIndex = 6;
@@ -176,35 +177,35 @@
 			// 
 			// DataProductiePicker
 			// 
-			this.DataProductiePicker.Location = new System.Drawing.Point(168, 285);
+			this.DataProductiePicker.Location = new System.Drawing.Point(177, 285);
 			this.DataProductiePicker.Name = "DataProductiePicker";
 			this.DataProductiePicker.Size = new System.Drawing.Size(243, 22);
 			this.DataProductiePicker.TabIndex = 5;
 			// 
 			// PretTb
 			// 
-			this.PretTb.Location = new System.Drawing.Point(168, 191);
+			this.PretTb.Location = new System.Drawing.Point(177, 191);
 			this.PretTb.Name = "PretTb";
 			this.PretTb.Size = new System.Drawing.Size(58, 22);
 			this.PretTb.TabIndex = 4;
 			// 
 			// CantitateTb
 			// 
-			this.CantitateTb.Location = new System.Drawing.Point(168, 239);
+			this.CantitateTb.Location = new System.Drawing.Point(177, 237);
 			this.CantitateTb.Name = "CantitateTb";
 			this.CantitateTb.Size = new System.Drawing.Size(58, 22);
 			this.CantitateTb.TabIndex = 3;
 			// 
 			// NumeProdusTb
 			// 
-			this.NumeProdusTb.Location = new System.Drawing.Point(168, 145);
+			this.NumeProdusTb.Location = new System.Drawing.Point(177, 145);
 			this.NumeProdusTb.Name = "NumeProdusTb";
 			this.NumeProdusTb.Size = new System.Drawing.Size(243, 22);
 			this.NumeProdusTb.TabIndex = 2;
 			// 
 			// CodprodusTb
 			// 
-			this.CodprodusTb.Location = new System.Drawing.Point(168, 97);
+			this.CodprodusTb.Location = new System.Drawing.Point(177, 97);
 			this.CodprodusTb.Name = "CodprodusTb";
 			this.CodprodusTb.Size = new System.Drawing.Size(58, 22);
 			this.CodprodusTb.TabIndex = 1;

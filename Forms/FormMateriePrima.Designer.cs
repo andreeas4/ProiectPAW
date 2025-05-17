@@ -281,7 +281,7 @@
 			this.MateriiPrimeLb.Location = new System.Drawing.Point(495, 41);
 			this.MateriiPrimeLb.MultiColumn = true;
 			this.MateriiPrimeLb.Name = "MateriiPrimeLb";
-			this.MateriiPrimeLb.Size = new System.Drawing.Size(466, 493);
+			this.MateriiPrimeLb.Size = new System.Drawing.Size(496, 493);
 			this.MateriiPrimeLb.TabIndex = 1;
 			this.MateriiPrimeLb.SelectedIndexChanged += new System.EventHandler(this.MateriiPrimeLb_SelectedIndexChanged);
 			// 

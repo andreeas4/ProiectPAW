@@ -69,8 +69,9 @@ namespace ProiectPAW
 				MessageBox.Show($"Ai adăugat: {p}");
 				produse.Add(p);
 				// Afișare în ListView
+				CalculPretFinalTb.Text=p.CalculeazaPretFinal(20).ToString("0.00");
 
-				
+
 				string ingredienteStr = "";
 				if (ingredienteSelectate.Count > 0)
 				{
@@ -251,6 +252,11 @@ namespace ProiectPAW
 					MessageBox.Show($"Eroare la salvarea fișierului:\n{ex.Message}", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
 			}
+		}
+
+		private void CalculPretFinalTb_TextChanged(object sender, EventArgs e)
+		{
+			
 		}
 	}
 }

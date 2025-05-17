@@ -91,8 +91,10 @@ namespace ProiectPAW
         }
 		public double CalculeazaPretFinal(double procentProfit)
 		{
+			double cantitate = this.Cant;
+            double pret = this.Pret;
 			double costTotal = ingrediente.Sum(i => i.Cantitate * i.Materie.cost);
-			return costTotal * (1 + procentProfit / 100.0);
+			return costTotal +(pret*cantitate) *(1 + procentProfit / 100.0);
 		}
 
 
@@ -120,6 +122,6 @@ namespace ProiectPAW
            $"------------------------------";
         }
 
-        //---------------trebuie sa fac un icalculable unde sa calculez pretul produsului din costul materiei prima consumate +profit default prcent
+       
     }
 }
