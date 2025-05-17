@@ -44,8 +44,6 @@
 			this.NumeProdusTb = new System.Windows.Forms.TextBox();
 			this.CodprodusTb = new System.Windows.Forms.TextBox();
 			this.AdaugaIngredienteButton = new System.Windows.Forms.Button();
-			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-			this.editareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.ExitButton = new System.Windows.Forms.Button();
 			this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
 			this.ProduseLv = new System.Windows.Forms.ListView();
@@ -55,14 +53,23 @@
 			this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.contextMenuProduse = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.stergeProdusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.editareProdusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.SalveazaModificariButton = new System.Windows.Forms.Button();
+			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+			this.fisierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.salveazaProduseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.panel1.SuspendLayout();
-			this.menuStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+			this.contextMenuProduse.SuspendLayout();
+			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// panel1
 			// 
 			this.panel1.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
+			this.panel1.Controls.Add(this.SalveazaModificariButton);
 			this.panel1.Controls.Add(this.AdaugaProdus);
 			this.panel1.Controls.Add(this.label6);
 			this.panel1.Controls.Add(this.CalculPretFinalTb);
@@ -85,9 +92,9 @@
 			// AdaugaProdus
 			// 
 			this.AdaugaProdus.Font = new System.Drawing.Font("Lucida Console", 10.2F, System.Drawing.FontStyle.Bold);
-			this.AdaugaProdus.Location = new System.Drawing.Point(77, 523);
+			this.AdaugaProdus.Location = new System.Drawing.Point(77, 520);
 			this.AdaugaProdus.Name = "AdaugaProdus";
-			this.AdaugaProdus.Size = new System.Drawing.Size(239, 44);
+			this.AdaugaProdus.Size = new System.Drawing.Size(257, 47);
 			this.AdaugaProdus.TabIndex = 13;
 			this.AdaugaProdus.Text = "Adauga";
 			this.AdaugaProdus.UseVisualStyleBackColor = true;
@@ -97,7 +104,7 @@
 			// 
 			this.label6.AutoSize = true;
 			this.label6.Font = new System.Drawing.Font("Lucida Console", 10.2F);
-			this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+			this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaption;
 			this.label6.Location = new System.Drawing.Point(14, 445);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(268, 17);
@@ -116,7 +123,7 @@
 			// 
 			this.label5.AutoSize = true;
 			this.label5.Font = new System.Drawing.Font("Lucida Console", 10.2F);
-			this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+			this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaption;
 			this.label5.Location = new System.Drawing.Point(3, 285);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(148, 17);
@@ -127,7 +134,7 @@
 			// 
 			this.label4.AutoSize = true;
 			this.label4.Font = new System.Drawing.Font("Lucida Console", 10.2F);
-			this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+			this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaption;
 			this.label4.Location = new System.Drawing.Point(53, 242);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(98, 17);
@@ -138,7 +145,7 @@
 			// 
 			this.label3.AutoSize = true;
 			this.label3.Font = new System.Drawing.Font("Lucida Console", 10.2F);
-			this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+			this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaption;
 			this.label3.Location = new System.Drawing.Point(92, 194);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(48, 17);
@@ -149,7 +156,7 @@
 			// 
 			this.label2.AutoSize = true;
 			this.label2.Font = new System.Drawing.Font("Lucida Console", 10.2F);
-			this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+			this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaption;
 			this.label2.Location = new System.Drawing.Point(33, 150);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(118, 17);
@@ -160,7 +167,7 @@
 			// 
 			this.label1.AutoSize = true;
 			this.label1.Font = new System.Drawing.Font("Lucida Console", 10.2F);
-			this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+			this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
 			this.label1.Location = new System.Drawing.Point(43, 97);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(108, 17);
@@ -207,33 +214,11 @@
 			this.AdaugaIngredienteButton.Font = new System.Drawing.Font("Lucida Console", 10.2F, System.Drawing.FontStyle.Bold);
 			this.AdaugaIngredienteButton.Location = new System.Drawing.Point(77, 351);
 			this.AdaugaIngredienteButton.Name = "AdaugaIngredienteButton";
-			this.AdaugaIngredienteButton.Size = new System.Drawing.Size(239, 43);
+			this.AdaugaIngredienteButton.Size = new System.Drawing.Size(257, 43);
 			this.AdaugaIngredienteButton.TabIndex = 0;
 			this.AdaugaIngredienteButton.Text = "Adauga ingrediente";
 			this.AdaugaIngredienteButton.UseVisualStyleBackColor = true;
 			this.AdaugaIngredienteButton.Click += new System.EventHandler(this.AdaugaIngredienteButton_Click);
-			// 
-			// menuStrip1
-			// 
-			this.menuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-			this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editareToolStripMenuItem});
-			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(1163, 28);
-			this.menuStrip1.TabIndex = 1;
-			this.menuStrip1.Text = "menuStrip1";
-			this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
-			// 
-			// editareToolStripMenuItem
-			// 
-			this.editareToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlText;
-			this.editareToolStripMenuItem.Font = new System.Drawing.Font("SimSun-ExtB", 12F, System.Drawing.FontStyle.Bold);
-			this.editareToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.editareToolStripMenuItem.Name = "editareToolStripMenuItem";
-			this.editareToolStripMenuItem.Size = new System.Drawing.Size(100, 24);
-			this.editareToolStripMenuItem.Text = "Editare";
 			// 
 			// ExitButton
 			// 
@@ -241,7 +226,7 @@
 			this.ExitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.ExitButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ExitButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.ExitButton.Location = new System.Drawing.Point(1087, -2);
+			this.ExitButton.Location = new System.Drawing.Point(1088, 0);
 			this.ExitButton.Name = "ExitButton";
 			this.ExitButton.Size = new System.Drawing.Size(75, 30);
 			this.ExitButton.TabIndex = 2;
@@ -263,37 +248,111 @@
             this.columnHeader4,
             this.columnHeader5,
             this.columnHeader6});
+			this.ProduseLv.ContextMenuStrip = this.contextMenuProduse;
 			this.ProduseLv.Font = new System.Drawing.Font("Cascadia Code", 7.8F);
+			this.ProduseLv.GridLines = true;
 			this.ProduseLv.HideSelection = false;
-			this.ProduseLv.Location = new System.Drawing.Point(496, 56);
+			this.ProduseLv.Location = new System.Drawing.Point(524, 62);
 			this.ProduseLv.Name = "ProduseLv";
-			this.ProduseLv.Size = new System.Drawing.Size(645, 611);
+			this.ProduseLv.Size = new System.Drawing.Size(579, 790);
 			this.ProduseLv.TabIndex = 3;
 			this.ProduseLv.UseCompatibleStateImageBehavior = false;
+			this.ProduseLv.View = System.Windows.Forms.View.Details;
 			// 
 			// columnHeader1
 			// 
 			this.columnHeader1.Text = "Cod";
+			this.columnHeader1.Width = 40;
 			// 
 			// columnHeader2
 			// 
 			this.columnHeader2.Text = "Nume";
+			this.columnHeader2.Width = 90;
 			// 
 			// columnHeader3
 			// 
 			this.columnHeader3.Text = "Pret";
+			this.columnHeader3.Width = 70;
 			// 
 			// columnHeader4
 			// 
 			this.columnHeader4.Text = "Cantitate";
+			this.columnHeader4.Width = 70;
 			// 
 			// columnHeader5
 			// 
 			this.columnHeader5.Text = "Data";
+			this.columnHeader5.Width = 120;
 			// 
 			// columnHeader6
 			// 
 			this.columnHeader6.Text = "Ingrediente";
+			this.columnHeader6.Width = 400;
+			// 
+			// contextMenuProduse
+			// 
+			this.contextMenuProduse.ImageScalingSize = new System.Drawing.Size(20, 20);
+			this.contextMenuProduse.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.stergeProdusToolStripMenuItem,
+            this.editareProdusToolStripMenuItem});
+			this.contextMenuProduse.Name = "contextMenuProduse";
+			this.contextMenuProduse.Size = new System.Drawing.Size(176, 52);
+			// 
+			// stergeProdusToolStripMenuItem
+			// 
+			this.stergeProdusToolStripMenuItem.Name = "stergeProdusToolStripMenuItem";
+			this.stergeProdusToolStripMenuItem.Size = new System.Drawing.Size(175, 24);
+			this.stergeProdusToolStripMenuItem.Text = "Sterge produs";
+			this.stergeProdusToolStripMenuItem.Click += new System.EventHandler(this.stergeProdusToolStripMenuItem_Click);
+			// 
+			// editareProdusToolStripMenuItem
+			// 
+			this.editareProdusToolStripMenuItem.Name = "editareProdusToolStripMenuItem";
+			this.editareProdusToolStripMenuItem.Size = new System.Drawing.Size(175, 24);
+			this.editareProdusToolStripMenuItem.Text = "Editare produs";
+			this.editareProdusToolStripMenuItem.Click += new System.EventHandler(this.editareProdusToolStripMenuItem_Click);
+			// 
+			// SalveazaModificariButton
+			// 
+			this.SalveazaModificariButton.Font = new System.Drawing.Font("Lucida Console", 10.2F, System.Drawing.FontStyle.Bold);
+			this.SalveazaModificariButton.Location = new System.Drawing.Point(77, 583);
+			this.SalveazaModificariButton.Name = "SalveazaModificariButton";
+			this.SalveazaModificariButton.Size = new System.Drawing.Size(257, 43);
+			this.SalveazaModificariButton.TabIndex = 14;
+			this.SalveazaModificariButton.Text = "Salveaza modificari";
+			this.SalveazaModificariButton.UseVisualStyleBackColor = true;
+			this.SalveazaModificariButton.Visible = false;
+			this.SalveazaModificariButton.Click += new System.EventHandler(this.SalveazaModificariButton_Click);
+			// 
+			// menuStrip1
+			// 
+			this.menuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+			this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fisierToolStripMenuItem});
+			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+			this.menuStrip1.Name = "menuStrip1";
+			this.menuStrip1.Size = new System.Drawing.Size(1163, 30);
+			this.menuStrip1.TabIndex = 5;
+			this.menuStrip1.Text = "menuStrip1";
+			// 
+			// fisierToolStripMenuItem
+			// 
+			this.fisierToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.salveazaProduseToolStripMenuItem});
+			this.fisierToolStripMenuItem.Font = new System.Drawing.Font("SimSun", 12.8F, System.Drawing.FontStyle.Bold);
+			this.fisierToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+			this.fisierToolStripMenuItem.Name = "fisierToolStripMenuItem";
+			this.fisierToolStripMenuItem.Size = new System.Drawing.Size(96, 26);
+			this.fisierToolStripMenuItem.Text = "Fisier";
+			// 
+			// salveazaProduseToolStripMenuItem
+			// 
+			this.salveazaProduseToolStripMenuItem.Font = new System.Drawing.Font("SimSun", 9.8F, System.Drawing.FontStyle.Bold);
+			this.salveazaProduseToolStripMenuItem.Name = "salveazaProduseToolStripMenuItem";
+			this.salveazaProduseToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
+			this.salveazaProduseToolStripMenuItem.Text = "Salveaza produse";
+			this.salveazaProduseToolStripMenuItem.Click += new System.EventHandler(this.salveazaProduseToolStripMenuItem_Click);
 			// 
 			// FormProduse
 			// 
@@ -301,19 +360,22 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.ActiveCaption;
 			this.ClientSize = new System.Drawing.Size(1163, 679);
-			this.Controls.Add(this.ProduseLv);
 			this.Controls.Add(this.ExitButton);
 			this.Controls.Add(this.menuStrip1);
+			this.Controls.Add(this.ProduseLv);
 			this.Controls.Add(this.panel1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+			this.KeyPreview = true;
 			this.Name = "FormProduse";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "FormProduse";
+			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormProduse_KeyDown);
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+			this.contextMenuProduse.ResumeLayout(false);
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -322,8 +384,6 @@
 		#endregion
 
 		private System.Windows.Forms.Panel panel1;
-		private System.Windows.Forms.MenuStrip menuStrip1;
-		private System.Windows.Forms.ToolStripMenuItem editareToolStripMenuItem;
 		private System.Windows.Forms.Button ExitButton;
 		private System.Windows.Forms.Button AdaugaIngredienteButton;
 		private System.Windows.Forms.TextBox PretTb;
@@ -347,5 +407,12 @@
 		private System.Windows.Forms.ColumnHeader columnHeader4;
 		private System.Windows.Forms.ColumnHeader columnHeader5;
 		private System.Windows.Forms.ColumnHeader columnHeader6;
+		private System.Windows.Forms.ContextMenuStrip contextMenuProduse;
+		private System.Windows.Forms.ToolStripMenuItem stergeProdusToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem editareProdusToolStripMenuItem;
+		private System.Windows.Forms.Button SalveazaModificariButton;
+		private System.Windows.Forms.MenuStrip menuStrip1;
+		private System.Windows.Forms.ToolStripMenuItem fisierToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem salveazaProduseToolStripMenuItem;
 	}
 }

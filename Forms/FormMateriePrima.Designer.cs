@@ -50,9 +50,10 @@
 			this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
 			this.MateriiPrimeLb = new System.Windows.Forms.ListBox();
 			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-			this.editareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.button1 = new System.Windows.Forms.Button();
+			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+			this.fisierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.salveazaMateriePrimaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.panel1.SuspendLayout();
 			this.panel2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -290,43 +291,51 @@
 			this.contextMenuStrip1.Name = "contextMenuStrip1";
 			this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
 			// 
+			// button1
+			// 
+			this.button1.BackColor = System.Drawing.SystemColors.ControlText;
+			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.button1.Font = new System.Drawing.Font("Segoe UI", 9.2F);
+			this.button1.ForeColor = System.Drawing.SystemColors.Control;
+			this.button1.Location = new System.Drawing.Point(1011, -1);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(77, 31);
+			this.button1.TabIndex = 6;
+			this.button1.Text = "X";
+			this.button1.UseVisualStyleBackColor = false;
+			this.button1.Click += new System.EventHandler(this.button1_Click);
+			// 
 			// menuStrip1
 			// 
 			this.menuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
 			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editareToolStripMenuItem});
+            this.fisierToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
 			this.menuStrip1.Size = new System.Drawing.Size(1088, 30);
-			this.menuStrip1.TabIndex = 5;
+			this.menuStrip1.TabIndex = 7;
 			this.menuStrip1.Text = "menuStrip1";
-			this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked_1);
+			this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked_2);
 			// 
-			// editareToolStripMenuItem
+			// fisierToolStripMenuItem
 			// 
-			this.editareToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-			this.editareToolStripMenuItem.CheckOnClick = true;
-			this.editareToolStripMenuItem.Font = new System.Drawing.Font("SimSun-ExtB", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.editareToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-			this.editareToolStripMenuItem.Name = "editareToolStripMenuItem";
-			this.editareToolStripMenuItem.Size = new System.Drawing.Size(100, 26);
-			this.editareToolStripMenuItem.Text = "Editare";
-			this.editareToolStripMenuItem.MouseHover += new System.EventHandler(this.editareToolStripMenuItem_MouseHover);
+			this.fisierToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+			this.fisierToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.salveazaMateriePrimaToolStripMenuItem});
+			this.fisierToolStripMenuItem.Font = new System.Drawing.Font("SimSun", 12.8F, System.Drawing.FontStyle.Bold);
+			this.fisierToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+			this.fisierToolStripMenuItem.Name = "fisierToolStripMenuItem";
+			this.fisierToolStripMenuItem.Size = new System.Drawing.Size(96, 26);
+			this.fisierToolStripMenuItem.Text = "Fisier";
 			// 
-			// button1
+			// salveazaMateriePrimaToolStripMenuItem
 			// 
-			this.button1.BackColor = System.Drawing.SystemColors.ControlText;
-			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button1.ForeColor = System.Drawing.SystemColors.Control;
-			this.button1.Location = new System.Drawing.Point(1011, -1);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(77, 28);
-			this.button1.TabIndex = 6;
-			this.button1.Text = "X";
-			this.button1.UseVisualStyleBackColor = false;
-			this.button1.Click += new System.EventHandler(this.button1_Click);
+			this.salveazaMateriePrimaToolStripMenuItem.Font = new System.Drawing.Font("SimSun", 9.8F, System.Drawing.FontStyle.Bold);
+			this.salveazaMateriePrimaToolStripMenuItem.Name = "salveazaMateriePrimaToolStripMenuItem";
+			this.salveazaMateriePrimaToolStripMenuItem.Size = new System.Drawing.Size(312, 26);
+			this.salveazaMateriePrimaToolStripMenuItem.Text = "Salveaza Materie Prima";
+			this.salveazaMateriePrimaToolStripMenuItem.Click += new System.EventHandler(this.salveazaMateriePrimaToolStripMenuItem_Click);
 			// 
 			// FormMateriePrima
 			// 
@@ -378,8 +387,9 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ListBox MateriiPrimeLb;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem editareToolStripMenuItem;
 		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.MenuStrip menuStrip1;
+		private System.Windows.Forms.ToolStripMenuItem fisierToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem salveazaMateriePrimaToolStripMenuItem;
 	}
 }

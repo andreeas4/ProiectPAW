@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -185,6 +186,45 @@ namespace ProiectPAW
 		private void button1_Click(object sender, EventArgs e)
 		{
 			this.Close();
+		}
+
+		private void menuStrip1_ItemClicked_2(object sender, ToolStripItemClickedEventArgs e)
+		{
+
+		}
+
+		private void salveazaMateriePrimaToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			SaveFileDialog saveFileDialog = new SaveFileDialog();
+			saveFileDialog.Title = "Salvează materii prime";
+			saveFileDialog.Filter = "Fișiere text (*.txt)|*.txt";
+			saveFileDialog.FileName = "materii_prime.txt";
+
+			if (saveFileDialog.ShowDialog() == DialogResult.OK)
+			{
+				try
+				{
+					using (StreamWriter sw = new StreamWriter(saveFileDialog.FileName, false))
+					{
+						sw.WriteLine("Tip;Nume;UM;Cost;ValoareSpecifică");
+
+						foreach (Materieprima m in DataManager.Instance.MateriiPrime)
+						{
+							string tip = m is MateriePrimaSolida ? "Solidă" : "Lichidă";
+							string valoare = m is MateriePrimaSolida solida ? solida.densitate.ToString() :
+											 m is MateriePrimaLichida lichida ? lichida.vascozitate.ToString() : "";
+
+							sw.WriteLine($"{tip};{m.nume};{m.um};{m.cost};{valoare}");
+						}
+					}
+
+					MessageBox.Show("Materiile prime au fost salvate cu succes!", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				}
+				catch (Exception ex)
+				{
+					MessageBox.Show($"Eroare la salvare: {ex.Message}", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+			}
 		}
 	}
 }

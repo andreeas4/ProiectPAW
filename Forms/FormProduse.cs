@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -55,7 +56,7 @@ namespace ProiectPAW
 			
 
 			if (!valid)
-				return; // Ieșim dacă sunt erori
+				return; 
 
 			try
 			{
@@ -66,24 +67,38 @@ namespace ProiectPAW
 
 				DataManager.Instance.AdaugaProdus(p);
 				MessageBox.Show($"Ai adăugat: {p}");
-
+				produse.Add(p);
 				// Afișare în ListView
+
 				
-				var item = new ListViewItem(p.CodProdus.ToString());
-				item.SubItems.Add(p.NumeProdus);
-				item.SubItems.Add(p.Pret.ToString("0.00"));
-				item.SubItems.Add(p.Cant.ToString("0.00"));
-				item.SubItems.Add(p.DataProductie.ToShortDateString());
-				item.SubItems.Add(string.Join(", ", p.ingrediente.Select(i => i.ToString())));
+				string ingredienteStr = "";
+				if (ingredienteSelectate.Count > 0)
+				{
+					foreach (var ing in ingredienteSelectate)
+					{
+						ingredienteStr += $" {ing.Materie.nume}, \n";
+					}
+				}
+				foreach (Produs pr in produse)
+				{
+					ListViewItem item = new ListViewItem(p.CodProdus.ToString());
 
-				ProduseLv.Items.Add(item);
+					item.SubItems.Add(pr.NumeProdus);
+					item.SubItems.Add(pr.Pret.ToString());
+					item.SubItems.Add(pr.Cant.ToString());
+					item.SubItems.Add(pr.DataProductie.ToShortDateString());
+					item.SubItems.Add(ingredienteStr);
+					ProduseLv.Items.Add(item);
+					
+				}
 
-				// Resetare
+
+
+				
 				NumeProdusTb.Clear();
 				CodprodusTb.Clear();
 				PretTb.Clear();
 				CantitateTb.Clear();
-				//listBoxIngrediente.Items.Clear();
 				ingredienteSelectate.Clear();
 			}
 			catch (Exception ex)
@@ -98,14 +113,8 @@ namespace ProiectPAW
 
 			if (form.ShowDialog() == DialogResult.OK)
 			{
-				ingredienteSelectate = form.IngredienteSelectate;
+				ingredienteSelectate = DataManager.Instance.IngredienteSelectate;
 
-				// Poți afișa în listă sau doar salva
-				//listBoxIngrediente.Items.Clear();
-				//foreach (var ing in ingredienteSelectate)
-				//{
-				//	listBoxIngrediente.Items.Add(ing.ToString());
-				//}
 			}
 
 		}
@@ -113,6 +122,135 @@ namespace ProiectPAW
 		private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
 		{
 
+		}
+
+		private void stergeProdusToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			if (ProduseLv.SelectedItems.Count > 0)
+			{
+				ListViewItem item = ProduseLv.SelectedItems[0];
+				int codProdus = int.Parse(item.SubItems[0].Text);
+
+				
+				Produs produsDeSters = DataManager.Instance.Produse.FirstOrDefault(p => p.CodProdus == codProdus);
+
+
+				if (produsDeSters != null)
+					DataManager.Instance.Produse.Remove(produsDeSters);
+
+				
+				Produs localProdus = produse.FirstOrDefault(p => p.CodProdus == codProdus);
+				if (localProdus != null)
+					produse.Remove(localProdus);
+
+				ProduseLv.Items.Remove(item);
+			}
+			else
+			{
+				MessageBox.Show("Selectați un produs din listă!(codul)");
+			}
+		}
+
+		private void editareProdusToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			if (ProduseLv.SelectedItems.Count == 0)
+			{
+				MessageBox.Show("Selectați un produs pentru editare.");
+				return;
+			}
+
+			var item = ProduseLv.SelectedItems[0];
+
+			CodprodusTb.Text = item.SubItems[0].Text;
+			NumeProdusTb.Text = item.SubItems[1].Text;
+			PretTb.Text = item.SubItems[2].Text;
+			CantitateTb.Text = item.SubItems[3].Text;
+			DataProductiePicker.Value = DateTime.Parse(item.SubItems[4].Text);
+
+			// Poți activa un buton „Salvează modificări”
+			
+			SalveazaModificariButton.Visible = true;
+		}
+
+		private void SalveazaModificariButton_Click(object sender, EventArgs e)
+		{
+			if (ProduseLv.SelectedItems.Count == 0)
+			{
+				MessageBox.Show("Selectează un produs pentru a-l edita.");
+				return;
+			}
+
+			ListViewItem item = ProduseLv.SelectedItems[0];
+			int codOriginal = int.Parse(item.SubItems[0].Text);
+
+			Produs produs = produse.FirstOrDefault(p => p.CodProdus == codOriginal);
+			if (produs == null) return;
+
+			// Actualizează produsul
+			produs.NumeProdus = NumeProdusTb.Text;
+			produs.Pret = double.Parse(PretTb.Text);
+			produs.Cant = double.Parse(CantitateTb.Text);
+			produs.DataProductie = DataProductiePicker.Value;
+
+			// Actualizează și în DataManager
+			Produs produsDM = DataManager.Instance.Produse.FirstOrDefault(p => p.CodProdus == codOriginal);
+			if (produsDM != null)
+			{
+				produsDM.NumeProdus = produs.NumeProdus;
+				produsDM.Pret = produs.Pret;
+				produsDM.Cant = produs.Cant;
+				produsDM.DataProductie = produs.DataProductie;
+			}
+
+			// Refreshează ListView
+			item.SubItems[1].Text = produs.NumeProdus;
+			item.SubItems[2].Text = produs.Pret.ToString("0.00");
+			item.SubItems[3].Text = produs.Cant.ToString();
+			item.SubItems[4].Text = produs.DataProductie.ToShortDateString();
+
+			MessageBox.Show("Produsul a fost actualizat cu succes!");
+		}
+
+		private void FormProduse_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.Control && e.KeyCode == Keys.S) // Ctrl + S
+			{
+				if (SalveazaModificariButton.Visible) // doar dacă butonul e vizibil
+				{
+					SalveazaModificariButton.PerformClick();
+					e.Handled = true;
+				}
+			}
+		}
+
+		private void salveazaProduseToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			SaveFileDialog saveFileDialog = new SaveFileDialog();
+			saveFileDialog.Title = "Salvează produsele";
+			saveFileDialog.Filter = "Fișiere text (*.txt)|*.txt";
+			saveFileDialog.FileName = "produse.txt"; // nume sugerat
+
+			if (saveFileDialog.ShowDialog() == DialogResult.OK)
+			{
+				try
+				{
+					using (StreamWriter sw = new StreamWriter(saveFileDialog.FileName, false))
+					{
+						sw.WriteLine("CodProdus;NumeProdus;Pret;Cantitate;DataProductie");
+
+						foreach (Produs p in DataManager.Instance.Produse)
+						{
+							sw.WriteLine($"{p.CodProdus};{p.NumeProdus};{p.Pret};{p.Cant};{p.DataProductie.ToShortDateString()}");
+						}
+					}
+
+					MessageBox.Show("Produsele au fost salvate cu succes!", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				}
+				catch (Exception ex)
+				{
+					MessageBox.Show($"Eroare la salvarea fișierului:\n{ex.Message}", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+			}
 		}
 	}
 }

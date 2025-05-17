@@ -19,10 +19,7 @@ namespace ProiectPAW.Forms
 			InitializeComponent();
 		}
 		
-		private void btnConfirm_Click(object sender, EventArgs e)
-		{
-			
-		}
+		
 
 		private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
 		{
@@ -93,7 +90,6 @@ namespace ProiectPAW.Forms
 
 			};
 			
-
 			dataGridView1.Columns.Add(colCant);
 
 			

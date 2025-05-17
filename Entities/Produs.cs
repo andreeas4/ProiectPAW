@@ -98,11 +98,14 @@ namespace ProiectPAW
 
 		public override string ToString()
         {
-            string ingredienteStr;
+            string ingredienteStr="";
             if (ingrediente.Count > 0)
             {
-                ingredienteStr = string.Join(", ", ingrediente);
-            }
+				foreach (var ing in ingrediente)
+				{
+					ingredienteStr += $"{ing.Materie.nume}: {ing.Cantitate} unități\n";
+				}
+			}
             else
             {
                 ingredienteStr = "Fără ingrediente";

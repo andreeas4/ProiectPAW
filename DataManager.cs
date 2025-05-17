@@ -21,7 +21,7 @@ namespace ProiectPAW
 		public List<IngredientProdus> IngredienteSelectate { get; private set; } = new List<IngredientProdus>();
 
 		private static Dictionary<string, Materieprima> hashMateriiPrime = new Dictionary<string, Materieprima>();
-		// Constructorul privat pentru singleton
+		
 		private DataManager()
         {
             MateriiPrime = new List<Materieprima>();
@@ -29,11 +29,10 @@ namespace ProiectPAW
             LoturiFabricatie = new List<LotFabricatie>();
 			IngredienteSelectate = new List<IngredientProdus>();
 
-			
 
 		}
 
-        // Metoda pentru obținerea instanței unice a DataManager
+     
         public static DataManager Instance
         {
             get
@@ -48,18 +47,18 @@ namespace ProiectPAW
 
 		public static Dictionary<string, Materieprima> HashMateriiPrime { get => hashMateriiPrime; set => hashMateriiPrime = value; }
 
-		// Metodă pentru adăugarea unei materii prime
+		
 		public void AdaugaMateriePrima(Materieprima materiePrima)
         {
             if (materiePrima != null)
             {
-                MessageBox.Show(materiePrima.ToString());
+               
                 MateriiPrime.Add(materiePrima);
                 HashMateriiPrime.Add(materiePrima.nume, materiePrima);
 			}
         }
 
-        // Metodă pentru adăugarea unui produs
+        
         public void AdaugaProdus(Produs produs)
         {
             if (produs != null)
@@ -68,7 +67,7 @@ namespace ProiectPAW
             }
         }
 
-        // Metodă pentru adăugarea unui lot de fabricație
+        
         public void AdaugaLotFabricatie(LotFabricatie lotFabricatie)
         {
             if (lotFabricatie != null)
