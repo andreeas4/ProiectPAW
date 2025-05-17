@@ -91,13 +91,14 @@
 			// 
 			// AdaugaProdus
 			// 
+			this.AdaugaProdus.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
 			this.AdaugaProdus.Font = new System.Drawing.Font("Lucida Console", 10.2F, System.Drawing.FontStyle.Bold);
 			this.AdaugaProdus.Location = new System.Drawing.Point(77, 520);
 			this.AdaugaProdus.Name = "AdaugaProdus";
 			this.AdaugaProdus.Size = new System.Drawing.Size(257, 47);
 			this.AdaugaProdus.TabIndex = 13;
 			this.AdaugaProdus.Text = "Adauga";
-			this.AdaugaProdus.UseVisualStyleBackColor = true;
+			this.AdaugaProdus.UseVisualStyleBackColor = false;
 			this.AdaugaProdus.Click += new System.EventHandler(this.AdaugaProdus_Click);
 			// 
 			// label6
@@ -177,9 +178,10 @@
 			// 
 			// DataProductiePicker
 			// 
+			this.DataProductiePicker.Font = new System.Drawing.Font("Lucida Console", 10.2F);
 			this.DataProductiePicker.Location = new System.Drawing.Point(177, 285);
 			this.DataProductiePicker.Name = "DataProductiePicker";
-			this.DataProductiePicker.Size = new System.Drawing.Size(243, 22);
+			this.DataProductiePicker.Size = new System.Drawing.Size(243, 24);
 			this.DataProductiePicker.TabIndex = 5;
 			// 
 			// PretTb
@@ -212,13 +214,14 @@
 			// 
 			// AdaugaIngredienteButton
 			// 
+			this.AdaugaIngredienteButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
 			this.AdaugaIngredienteButton.Font = new System.Drawing.Font("Lucida Console", 10.2F, System.Drawing.FontStyle.Bold);
 			this.AdaugaIngredienteButton.Location = new System.Drawing.Point(77, 351);
 			this.AdaugaIngredienteButton.Name = "AdaugaIngredienteButton";
 			this.AdaugaIngredienteButton.Size = new System.Drawing.Size(257, 43);
 			this.AdaugaIngredienteButton.TabIndex = 0;
 			this.AdaugaIngredienteButton.Text = "Adauga ingrediente";
-			this.AdaugaIngredienteButton.UseVisualStyleBackColor = true;
+			this.AdaugaIngredienteButton.UseVisualStyleBackColor = false;
 			this.AdaugaIngredienteButton.Click += new System.EventHandler(this.AdaugaIngredienteButton_Click);
 			// 
 			// ExitButton
@@ -315,13 +318,14 @@
 			// 
 			// SalveazaModificariButton
 			// 
+			this.SalveazaModificariButton.BackColor = System.Drawing.SystemColors.HighlightText;
 			this.SalveazaModificariButton.Font = new System.Drawing.Font("Lucida Console", 10.2F, System.Drawing.FontStyle.Bold);
 			this.SalveazaModificariButton.Location = new System.Drawing.Point(77, 583);
 			this.SalveazaModificariButton.Name = "SalveazaModificariButton";
 			this.SalveazaModificariButton.Size = new System.Drawing.Size(257, 43);
 			this.SalveazaModificariButton.TabIndex = 14;
 			this.SalveazaModificariButton.Text = "Salveaza modificari";
-			this.SalveazaModificariButton.UseVisualStyleBackColor = true;
+			this.SalveazaModificariButton.UseVisualStyleBackColor = false;
 			this.SalveazaModificariButton.Visible = false;
 			this.SalveazaModificariButton.Click += new System.EventHandler(this.SalveazaModificariButton_Click);
 			// 
@@ -336,6 +340,7 @@
 			this.menuStrip1.Size = new System.Drawing.Size(1163, 30);
 			this.menuStrip1.TabIndex = 5;
 			this.menuStrip1.Text = "menuStrip1";
+			this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked_1);
 			// 
 			// fisierToolStripMenuItem
 			// 

@@ -16,7 +16,7 @@ namespace ProiectPAW
         public int IdLot { get => idLot; set => idLot = value; }
         public DateTime DataFabricatie { get => dataFabricatie; set => dataFabricatie = value; }
         public List<Produs> Produse { get => produse; set => produse = value; }
-        public double CantitateTotala { get => cantitateTotala; }
+       
 
         // Constructor implicit
         public LotFabricatie()
@@ -84,5 +84,14 @@ namespace ProiectPAW
             if (other == null) return 1;
             return this.cantitateTotala.CompareTo(other.cantitateTotala);
         }
-    }
+		public double CantitateTotala()
+		{
+            double cantitateLot = 0;
+			foreach (var produs in produse)
+			{
+				cantitateLot += produs.Cant;
+			}
+			return cantitateLot;
+		}
+	}
 }

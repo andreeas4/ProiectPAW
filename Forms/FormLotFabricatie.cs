@@ -11,8 +11,11 @@ using System.Windows.Forms;
 namespace ProiectPAW
 {
     public partial class FormLotFabricatie : Form
-    {
-        public FormLotFabricatie()
+
+    {   List <LotFabricatie>loturi = new List<LotFabricatie>();
+        List<Produs>produs = new List<Produs>();
+
+		public FormLotFabricatie()
         {
             InitializeComponent();
         }
@@ -21,5 +24,15 @@ namespace ProiectPAW
         {
 
         }
-    }
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+            this.Close();
+		}
+
+		private void AdaugaLotButton_Click(object sender, EventArgs e)
+		{
+
+		}
+	}
 }

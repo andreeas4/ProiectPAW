@@ -52,6 +52,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataManager.cs" />
+    <Compile Include="Forms\AdaugaProduse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AdaugaProduse.Designer.cs">
+      <DependentUpon>AdaugaProduse.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormIngrediente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\AdaugaProduse.resx">
+      <DependentUpon>AdaugaProduse.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormIngrediente.resx">
       <DependentUpon>FormIngrediente.cs</DependentUpon>
     </EmbeddedResource>
