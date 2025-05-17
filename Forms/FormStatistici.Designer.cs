@@ -53,6 +53,7 @@
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(1113, 524);
 			this.panel1.TabIndex = 1;
+			this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
 			// 
 			// menuStrip1
 			// 
@@ -70,6 +71,7 @@
 			this.incaToolStripMenuItem.Name = "incaToolStripMenuItem";
 			this.incaToolStripMenuItem.Size = new System.Drawing.Size(104, 24);
 			this.incaToolStripMenuItem.Text = "Incarca date";
+			this.incaToolStripMenuItem.Click += new System.EventHandler(this.incaToolStripMenuItem_Click);
 			// 
 			// FormStatistici
 			// 

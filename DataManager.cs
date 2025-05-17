@@ -23,6 +23,7 @@ namespace ProiectPAW
 
 		private static Dictionary<string, Materieprima> hashMateriiPrime = new Dictionary<string, Materieprima>();
 		private static Dictionary<(string,DateTime), Produs> hashProduse = new Dictionary<(string,DateTime), Produs>();
+        
 		private DataManager()
         {
             MateriiPrime = new List<Materieprima>();

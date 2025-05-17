@@ -61,6 +61,10 @@
 			this.fisierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.salveazaProduseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.exportDatestatisticiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.CostMediuTb = new System.Windows.Forms.TextBox();
+			this.label7 = new System.Windows.Forms.Label();
+			this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
 			this.contextMenuProduse.SuspendLayout();
@@ -70,6 +74,8 @@
 			// panel1
 			// 
 			this.panel1.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
+			this.panel1.Controls.Add(this.label7);
+			this.panel1.Controls.Add(this.CostMediuTb);
 			this.panel1.Controls.Add(this.SalveazaModificariButton);
 			this.panel1.Controls.Add(this.AdaugaProdus);
 			this.panel1.Controls.Add(this.label6);
@@ -120,15 +126,15 @@
 			this.label6.AutoSize = true;
 			this.label6.Font = new System.Drawing.Font("Lucida Console", 10.2F);
 			this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-			this.label6.Location = new System.Drawing.Point(53, 448);
+			this.label6.Location = new System.Drawing.Point(24, 421);
 			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(238, 17);
+			this.label6.Size = new System.Drawing.Size(268, 17);
 			this.label6.TabIndex = 12;
-			this.label6.Text = "Pretul final al lotului";
+			this.label6.Text = "Valoarea finala al lotului";
 			// 
 			// CalculPretFinalTb
 			// 
-			this.CalculPretFinalTb.Location = new System.Drawing.Point(320, 445);
+			this.CalculPretFinalTb.Location = new System.Drawing.Point(319, 416);
 			this.CalculPretFinalTb.Name = "CalculPretFinalTb";
 			this.CalculPretFinalTb.ReadOnly = true;
 			this.CalculPretFinalTb.Size = new System.Drawing.Size(91, 22);
@@ -244,7 +250,7 @@
 			this.ExitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.ExitButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ExitButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.ExitButton.Location = new System.Drawing.Point(1088, 0);
+			this.ExitButton.Location = new System.Drawing.Point(1240, 0);
 			this.ExitButton.Name = "ExitButton";
 			this.ExitButton.Size = new System.Drawing.Size(75, 30);
 			this.ExitButton.TabIndex = 2;
@@ -265,14 +271,16 @@
             this.columnHeader3,
             this.columnHeader4,
             this.columnHeader5,
-            this.columnHeader6});
+            this.columnHeader6,
+            this.columnHeader7,
+            this.columnHeader8});
 			this.ProduseLv.ContextMenuStrip = this.contextMenuProduse;
 			this.ProduseLv.Font = new System.Drawing.Font("Cascadia Code", 7.8F);
 			this.ProduseLv.GridLines = true;
 			this.ProduseLv.HideSelection = false;
-			this.ProduseLv.Location = new System.Drawing.Point(524, 62);
+			this.ProduseLv.Location = new System.Drawing.Point(487, 52);
 			this.ProduseLv.Name = "ProduseLv";
-			this.ProduseLv.Size = new System.Drawing.Size(579, 790);
+			this.ProduseLv.Size = new System.Drawing.Size(799, 800);
 			this.ProduseLv.TabIndex = 3;
 			this.ProduseLv.UseCompatibleStateImageBehavior = false;
 			this.ProduseLv.View = System.Windows.Forms.View.Details;
@@ -280,7 +288,7 @@
 			// columnHeader1
 			// 
 			this.columnHeader1.Text = "Cod";
-			this.columnHeader1.Width = 40;
+			this.columnHeader1.Width = 30;
 			// 
 			// columnHeader2
 			// 
@@ -305,7 +313,7 @@
 			// columnHeader6
 			// 
 			this.columnHeader6.Text = "Ingrediente";
-			this.columnHeader6.Width = 400;
+			this.columnHeader6.Width = 100;
 			// 
 			// contextMenuProduse
 			// 
@@ -338,7 +346,7 @@
             this.fisierToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(1163, 30);
+			this.menuStrip1.Size = new System.Drawing.Size(1315, 30);
 			this.menuStrip1.TabIndex = 5;
 			this.menuStrip1.Text = "menuStrip1";
 			this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked_1);
@@ -369,12 +377,41 @@
 			this.exportDatestatisticiToolStripMenuItem.Size = new System.Drawing.Size(332, 26);
 			this.exportDatestatisticiToolStripMenuItem.Text = "Export date (statistici)";
 			// 
+			// CostMediuTb
+			// 
+			this.CostMediuTb.Location = new System.Drawing.Point(319, 466);
+			this.CostMediuTb.Name = "CostMediuTb";
+			this.CostMediuTb.ReadOnly = true;
+			this.CostMediuTb.Size = new System.Drawing.Size(91, 22);
+			this.CostMediuTb.TabIndex = 15;
+			// 
+			// label7
+			// 
+			this.label7.AutoSize = true;
+			this.label7.Font = new System.Drawing.Font("Lucida Console", 10.2F);
+			this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+			this.label7.Location = new System.Drawing.Point(24, 469);
+			this.label7.Name = "label7";
+			this.label7.Size = new System.Drawing.Size(258, 17);
+			this.label7.TabIndex = 16;
+			this.label7.Text = "Costul mediu de productie";
+			// 
+			// columnHeader7
+			// 
+			this.columnHeader7.Text = "Valoare lot";
+			this.columnHeader7.Width = 70;
+			// 
+			// columnHeader8
+			// 
+			this.columnHeader8.Text = "Cmp";
+			this.columnHeader8.Width = 70;
+			// 
 			// FormProduse
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-			this.ClientSize = new System.Drawing.Size(1163, 679);
+			this.ClientSize = new System.Drawing.Size(1315, 679);
 			this.Controls.Add(this.ExitButton);
 			this.Controls.Add(this.menuStrip1);
 			this.Controls.Add(this.ProduseLv);
@@ -384,6 +421,7 @@
 			this.Name = "FormProduse";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "FormProduse";
+			this.Load += new System.EventHandler(this.FormProduse_Load);
 			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormProduse_KeyDown);
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
@@ -430,5 +468,9 @@
 		private System.Windows.Forms.ToolStripMenuItem fisierToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem salveazaProduseToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem exportDatestatisticiToolStripMenuItem;
+		private System.Windows.Forms.Label label7;
+		private System.Windows.Forms.TextBox CostMediuTb;
+		private System.Windows.Forms.ColumnHeader columnHeader7;
+		private System.Windows.Forms.ColumnHeader columnHeader8;
 	}
 }

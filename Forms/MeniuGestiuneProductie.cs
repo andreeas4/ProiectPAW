@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProiectPAW.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -47,7 +48,8 @@ namespace ProiectPAW
 
 		private void StatisticiButton_Click(object sender, EventArgs e)
 		{
-
+			FormStatistici formStatistici = new FormStatistici();
+			formStatistici.ShowDialog();
 		}
 	}
 }

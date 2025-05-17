@@ -23,9 +23,10 @@ namespace ProiectPAW
         public double Pret { get => pret; set => pret = value; }
         public double Cant { get => cant; set => cant = value; }
         public DateTime DataProductie { get => dataProductie; set => dataProductie = value; }
-        
 
-        public Produs()
+		private double costMediu;
+		public double CostMediu { get => costMediu; }
+		public Produs()
         {
             codProdus = 0;
             numeProdus = "Necunoscut";
@@ -97,6 +98,10 @@ namespace ProiectPAW
 			return costTotal +(pret*cantitate) *(1 + procentProfit / 100.0);
 		}
 
+		public void CalculeazaCostProductie()
+		{
+			costMediu = ingrediente.Sum(i => i.Materie.cost)+pret;
+		}
 
 		public override string ToString()
         {

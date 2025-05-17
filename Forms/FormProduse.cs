@@ -25,11 +25,36 @@ namespace ProiectPAW
 		{
             this.Close();
 		}
+		private void AfiseazaProdusInListView(Produs p)
+		{
+			p.CalculeazaCostProductie();
+			double pretFinal = p.CalculeazaPretFinal(20);
+			double costMediu = p.CostMediu;
 
+			string ingredienteStr = p.ingrediente.Count > 0
+				? string.Join(", ", p.ingrediente.Select(i => i.Materie.nume))
+				: "Fără ingrediente";
+
+			ListViewItem item = new ListViewItem(p.CodProdus.ToString());
+			item.SubItems.Add(p.NumeProdus);
+			item.SubItems.Add(p.Pret.ToString("0.00"));
+			item.SubItems.Add(p.Cant.ToString("0.00"));
+			item.SubItems.Add(p.DataProductie.ToShortDateString());
+			item.SubItems.Add(ingredienteStr);
+			item.SubItems.Add(pretFinal.ToString("0.00"));
+			item.SubItems.Add(costMediu.ToString("0.00"));
+
+			// Prevent duplicates by checking CodProdus
+			if (!ProduseLv.Items.Cast<ListViewItem>().Any(i => i.Text == p.CodProdus.ToString()))
+			{
+				ProduseLv.Items.Add(item);
+			}
+		}
 		private void AdaugaProdus_Click(object sender, EventArgs e)
 		{
 			errorProvider1.Clear();
 			bool valid = true;
+
 			if (!int.TryParse(CodprodusTb.Text, out int codProdus))
 			{
 				errorProvider1.SetError(CodprodusTb, "Introduceți un cod valid!");
@@ -42,21 +67,20 @@ namespace ProiectPAW
 				valid = false;
 			}
 
-			if (!Double.TryParse(PretTb.Text, out double pret))
+			if (!double.TryParse(PretTb.Text, out double pret) || pret <= 0)
 			{
-				errorProvider1.SetError(PretTb, "Introduceți un pret valid!");
+				errorProvider1.SetError(PretTb, "Introduceți un preț valid!");
 				valid = false;
 			}
-			if (!Double.TryParse(CantitateTb.Text, out double cantitate))
+
+			if (!double.TryParse(CantitateTb.Text, out double cantitate) || cantitate <= 0)
 			{
-				errorProvider1.SetError(CantitateTb, "Introduceți o cantitate!");
+				errorProvider1.SetError(CantitateTb, "Introduceți o cantitate validă!");
 				valid = false;
 			}
-		
-			
 
 			if (!valid)
-				return; 
+				return;
 
 			try
 			{
@@ -66,45 +90,30 @@ namespace ProiectPAW
 				Produs p = new Produs(codProdus, nume, pret, cantitate, dataSelectata, ingredienteSelectate);
 
 				DataManager.Instance.AdaugaProdus(p);
-				MessageBox.Show($"Ai adăugat: {p}");
 				produse.Add(p);
-				// Afișare în ListView
-				CalculPretFinalTb.Text=p.CalculeazaPretFinal(20).ToString("0.00");
+				p.CalculeazaPretFinal(20);
+				p.CalculeazaCostProductie();
+				// Add only the new product to ListView
+				AfiseazaProdusInListView(p);
 
+				CalculPretFinalTb.Text = p.CalculeazaPretFinal(20).ToString("0.00");
+				CostMediuTb.Text = p.CostMediu.ToString("0.00");
 
-				string ingredienteStr = "";
-				if (ingredienteSelectate.Count > 0)
-				{
-					foreach (var ing in ingredienteSelectate)
-					{
-						ingredienteStr += $" {ing.Materie.nume}, \n";
-					}
-				}
-				foreach (Produs pr in produse)
-				{
-					ListViewItem item = new ListViewItem(p.CodProdus.ToString());
+				MessageBox.Show($"Ai adăugat: {p}", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-					item.SubItems.Add(pr.NumeProdus);
-					item.SubItems.Add(pr.Pret.ToString());
-					item.SubItems.Add(pr.Cant.ToString());
-					item.SubItems.Add(pr.DataProductie.ToShortDateString());
-					item.SubItems.Add(ingredienteStr);
-					ProduseLv.Items.Add(item);
-					
-				}
-
-
-
-				
+				// Clear input fields and ingredient lists
 				NumeProdusTb.Clear();
 				CodprodusTb.Clear();
 				PretTb.Clear();
 				CantitateTb.Clear();
 				ingredienteSelectate.Clear();
+				DataManager.Instance.IngredienteSelectate.Clear();
+
+				System.Diagnostics.Debug.WriteLine($"Added Produs: {p.NumeProdus}, Cod: {p.CodProdus}");
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show($"Eroare: {ex.Message}");
+				MessageBox.Show($"Eroare: {ex.Message}", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 
@@ -168,7 +177,7 @@ namespace ProiectPAW
 			CantitateTb.Text = item.SubItems[3].Text;
 			DataProductiePicker.Value = DateTime.Parse(item.SubItems[4].Text);
 
-			// Poți activa un buton „Salvează modificări”
+			
 			
 			SalveazaModificariButton.Visible = true;
 		}
@@ -187,13 +196,13 @@ namespace ProiectPAW
 			Produs produs = produse.FirstOrDefault(p => p.CodProdus == codOriginal);
 			if (produs == null) return;
 
-			// Actualizează produsul
+		
 			produs.NumeProdus = NumeProdusTb.Text;
 			produs.Pret = double.Parse(PretTb.Text);
 			produs.Cant = double.Parse(CantitateTb.Text);
 			produs.DataProductie = DataProductiePicker.Value;
 
-			// Actualizează și în DataManager
+			
 			Produs produsDM = DataManager.Instance.Produse.FirstOrDefault(p => p.CodProdus == codOriginal);
 			if (produsDM != null)
 			{
@@ -202,13 +211,15 @@ namespace ProiectPAW
 				produsDM.Cant = produs.Cant;
 				produsDM.DataProductie = produs.DataProductie;
 			}
-
-			// Refreshează ListView
+			double pretFinal = produs.CalculeazaPretFinal(20);
+			produs.CalculeazaCostProductie();
+			double costMediu = produs.CostMediu;
 			item.SubItems[1].Text = produs.NumeProdus;
 			item.SubItems[2].Text = produs.Pret.ToString("0.00");
 			item.SubItems[3].Text = produs.Cant.ToString();
 			item.SubItems[4].Text = produs.DataProductie.ToShortDateString();
-
+			item.SubItems[5].Text = pretFinal.ToString("0.00");
+			item.SubItems[6].Text = costMediu.ToString("0.00");
 			MessageBox.Show("Produsul a fost actualizat cu succes!");
 		}
 
@@ -253,13 +264,18 @@ namespace ProiectPAW
 				}
 			}
 		}
-
+		
 		private void CalculPretFinalTb_TextChanged(object sender, EventArgs e)
 		{
 			
 		}
 
 		private void menuStrip1_ItemClicked_1(object sender, ToolStripItemClickedEventArgs e)
+		{
+
+		}
+
+		private void FormProduse_Load(object sender, EventArgs e)
 		{
 
 		}
