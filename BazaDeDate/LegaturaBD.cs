@@ -104,17 +104,17 @@ namespace ProiectPAW.BazaDeDate
                 {
                     try
                     {
-                        // Verificare și corectare dată invalidă
+                        
                         if (p.DataProductie <= DateTime.MinValue || p.DataProductie.Year < 1900)
                             p.DataProductie = DateTime.Now;
 
                         OleDbCommand comanda = new OleDbCommand();
                         comanda.Connection = con;
 
-                        // Comanda de inserare fără CodProdus
+                        
                         comanda.CommandText = "INSERT INTO Produs (NumeProdus, Pret, Cantitate, DataProductie) VALUES (?, ?, ?, ?)";
 
-                        // Parametri numiți + tipuri corespunzătoare Access
+                        
                         comanda.Parameters.Add("NumeProdus", OleDbType.VarChar, 255).Value = p.NumeProdus;
                         comanda.Parameters.Add("Pret", OleDbType.Double).Value = p.Pret;
                         comanda.Parameters.Add("Cantitate", OleDbType.Double).Value = p.Cant;
@@ -122,18 +122,18 @@ namespace ProiectPAW.BazaDeDate
 
                         comanda.ExecuteNonQuery();
 
-                        // Obține IDProdus generat (cheia AutoNumber)
+                        
                         OleDbCommand getIdCmd = new OleDbCommand("SELECT @@IDENTITY", con);
                         int idProdusGenerat = Convert.ToInt32(getIdCmd.ExecuteScalar());
 
-                        // Actualizează CodProdus cu IdProdus generat
+                        
                         p.CodProdus = idProdusGenerat;
 
-                        // Adaugă în ProdusIdMap pentru a putea asocia ingredientele
+                        
                         if (!dm.ProdusIdMap.ContainsKey(idProdusGenerat))
                             dm.ProdusIdMap.Add(idProdusGenerat, p);
 
-                        // Inserare ingrediente
+                       
                         foreach (var ing in p.ingrediente)
                         {
                             if (ing.Materie == null)
