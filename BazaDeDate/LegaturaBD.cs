@@ -10,7 +10,7 @@ namespace ProiectPAW.BazaDeDate
     {
         private const string connectionString = @"Provider=Microsoft.ACE.OLEDB.16.0;Data Source=C:\\Users\\S4\\Documents\\productie.accdb";
 
-        public static void IncarcaMateriiSiProduse()
+        public static void IncarcaMaterii()
         {
             var dm = DataManager.Instance;
 
@@ -50,67 +50,6 @@ namespace ProiectPAW.BazaDeDate
                 }
                 readerMaterii.Close();
 
-                OleDbCommand cmdProduse = new OleDbCommand("SELECT * FROM Produs", con);
-                OleDbDataReader readerProduse = cmdProduse.ExecuteReader();
-
-                while (readerProduse.Read())
-                {
-                    try
-                    {
-                        if (readerProduse["CodProdus"] == DBNull.Value)
-                            throw new Exception("CodProdus este NULL în baza de date.");
-
-                        int cod = Convert.ToInt32(readerProduse["CodProdus"]);
-
-                        string numeProdus = readerProduse["NumeProdus"].ToString();
-                        double pret = readerProduse["Pret"] != DBNull.Value ? Convert.ToDouble(readerProduse["Pret"]) : 0;
-                        double cantitate = readerProduse["Cantitate"] != DBNull.Value ? Convert.ToDouble(readerProduse["Cantitate"]) : 0;
-
-                        DateTime dataProductie;
-                        if (readerProduse["DataProductie"] == DBNull.Value)
-                            dataProductie = DateTime.Now;
-                        else
-                            dataProductie = Convert.ToDateTime(readerProduse["DataProductie"]);
-
-                        var produs = new Produs
-                        {
-                            CodProdus = cod,
-                            NumeProdus = numeProdus,
-                            Pret = pret,
-                            Cant = cantitate,
-                            DataProductie = dataProductie,
-                            ingrediente = new List<IngredientProdus>()
-                        };
-
-                        dm.AdaugaProdus(produs);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Eroare la încărcare produs: " + ex.Message);
-                        continue;
-                    }
-                }
-                readerProduse.Close();
-
-                OleDbCommand cmdIng = new OleDbCommand("SELECT * FROM Ingrediente", con);
-                OleDbDataReader readerIng = cmdIng.ExecuteReader();
-                while (readerIng.Read())
-                {
-                    int codProdus = Convert.ToInt32(readerIng["CodProdus"]);
-                    int idMaterie = Convert.ToInt32(readerIng["IdMateriePrima"]);
-                    double cantitate = Convert.ToDouble(readerIng["Cantitate"]);
-
-                    // Since CodProdus can have duplicates, we may need to handle this differently
-                    // For now, associate ingredients with the first matching product
-                    var produs = dm.Produse.FirstOrDefault(p => p.CodProdus == codProdus);
-                    var materie = DataManager.HashMateriiPrime.Values.FirstOrDefault(m => m.IDMateriePrima == idMaterie);
-
-                    if (produs != null && materie != null)
-                    {
-                        produs.AdaugaIngredient(new IngredientProdus(materie, cantitate));
-                    }
-                }
-                readerIng.Close();
             }
         }
 
@@ -169,28 +108,30 @@ namespace ProiectPAW.BazaDeDate
                         if (p.DataProductie <= DateTime.MinValue || p.DataProductie.Year < 1900)
                             p.DataProductie = DateTime.Now;
 
-                        // Verificare CodProdus
-                        if (p.CodProdus <= 0)
-                            throw new Exception("CodProdus invalid");
-
                         OleDbCommand comanda = new OleDbCommand();
                         comanda.Connection = con;
 
-                        // Comanda de inserare
-                        comanda.CommandText = "INSERT INTO Produs (NumeProdus, Pret, Cantitate, DataProductie, CodProdus) VALUES (?, ?, ?, ?, ?)";
+                        // Comanda de inserare fără CodProdus
+                        comanda.CommandText = "INSERT INTO Produs (NumeProdus, Pret, Cantitate, DataProductie) VALUES (?, ?, ?, ?)";
 
                         // Parametri numiți + tipuri corespunzătoare Access
                         comanda.Parameters.Add("NumeProdus", OleDbType.VarChar, 255).Value = p.NumeProdus;
                         comanda.Parameters.Add("Pret", OleDbType.Double).Value = p.Pret;
                         comanda.Parameters.Add("Cantitate", OleDbType.Double).Value = p.Cant;
                         comanda.Parameters.Add("DataProductie", OleDbType.Date).Value = p.DataProductie;
-                        comanda.Parameters.Add("CodProdus", OleDbType.Integer).Value = p.CodProdus;
 
                         comanda.ExecuteNonQuery();
 
                         // Obține IDProdus generat (cheia AutoNumber)
                         OleDbCommand getIdCmd = new OleDbCommand("SELECT @@IDENTITY", con);
                         int idProdusGenerat = Convert.ToInt32(getIdCmd.ExecuteScalar());
+
+                        // Actualizează CodProdus cu IdProdus generat
+                        p.CodProdus = idProdusGenerat;
+
+                        // Adaugă în ProdusIdMap pentru a putea asocia ingredientele
+                        if (!dm.ProdusIdMap.ContainsKey(idProdusGenerat))
+                            dm.ProdusIdMap.Add(idProdusGenerat, p);
 
                         // Inserare ingrediente
                         foreach (var ing in p.ingrediente)
@@ -199,11 +140,11 @@ namespace ProiectPAW.BazaDeDate
                                 continue;
 
                             OleDbCommand cmdIng = new OleDbCommand(
-                                "INSERT INTO Ingrediente (IdMateriePrima, IDProdus, Cantitate) VALUES (?, ?, ?)", con);
+                                "INSERT INTO Ingrediente (IdMateriePrima, IdProdus, Cantitate) VALUES (?, ?, ?)", con);
 
                             cmdIng.Connection = con;
                             cmdIng.Parameters.Add("IdMateriePrima", OleDbType.Integer).Value = ing.Materie.IDMateriePrima;
-                            cmdIng.Parameters.Add("IDProdus", OleDbType.Integer).Value = idProdusGenerat;
+                            cmdIng.Parameters.Add("IdProdus", OleDbType.Integer).Value = idProdusGenerat;
                             cmdIng.Parameters.Add("Cantitate", OleDbType.Double).Value = ing.Cantitate;
 
                             cmdIng.ExecuteNonQuery();
@@ -211,13 +152,11 @@ namespace ProiectPAW.BazaDeDate
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"Eroare la salvarea produsului cu CodProdus {p.CodProdus}:\n{ex.Message}",
+                        MessageBox.Show($"Eroare la salvarea produsului: {ex.Message}",
                             "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-
             }
         }
-        
     }
 }

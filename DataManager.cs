@@ -20,8 +20,8 @@ namespace ProiectPAW
         
 		public List<IngredientProdus> IngredienteSelectate { get; private set; } = new List<IngredientProdus>();
         public List<Produs> ProduseSelectate { get; private set; } = new List<Produs>();
-
-		private static Dictionary<string, Materieprima> hashMateriiPrime = new Dictionary<string, Materieprima>();
+        public Dictionary<int, Produs> ProdusIdMap { get; } = new Dictionary<int, Produs>();
+        private static Dictionary<string, Materieprima> hashMateriiPrime = new Dictionary<string, Materieprima>();
 		private static Dictionary<(string,DateTime), Produs> hashProduse = new Dictionary<(string,DateTime), Produs>();
         
 		private DataManager()

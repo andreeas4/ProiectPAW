@@ -132,11 +132,11 @@
             this.ImportaDate.BackColor = System.Drawing.Color.MidnightBlue;
             this.ImportaDate.Font = new System.Drawing.Font("SimSun-ExtB", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ImportaDate.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.ImportaDate.Location = new System.Drawing.Point(265, 478);
+            this.ImportaDate.Location = new System.Drawing.Point(244, 478);
             this.ImportaDate.Name = "ImportaDate";
-            this.ImportaDate.Size = new System.Drawing.Size(271, 38);
+            this.ImportaDate.Size = new System.Drawing.Size(312, 38);
             this.ImportaDate.TabIndex = 6;
-            this.ImportaDate.Text = "Importa Date";
+            this.ImportaDate.Text = "Importa Date Materii Prime";
             this.ImportaDate.UseVisualStyleBackColor = false;
             this.ImportaDate.Click += new System.EventHandler(this.ImportaDate_Click);
             // 
@@ -145,9 +145,9 @@
             this.ExportaDate.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.ExportaDate.Font = new System.Drawing.Font("SimSun-ExtB", 10.2F, System.Drawing.FontStyle.Bold);
             this.ExportaDate.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ExportaDate.Location = new System.Drawing.Point(656, 476);
+            this.ExportaDate.Location = new System.Drawing.Point(643, 477);
             this.ExportaDate.Name = "ExportaDate";
-            this.ExportaDate.Size = new System.Drawing.Size(283, 40);
+            this.ExportaDate.Size = new System.Drawing.Size(297, 40);
             this.ExportaDate.TabIndex = 7;
             this.ExportaDate.Text = "Exporta Date";
             this.ExportaDate.UseVisualStyleBackColor = false;

@@ -62,7 +62,7 @@ namespace ProiectPAW
         {
             try
             {
-                LegaturaBD.IncarcaMateriiSiProduse();
+                LegaturaBD.IncarcaMaterii();
                 MessageBox.Show("Datele au fost încărcate din baza de date.", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
