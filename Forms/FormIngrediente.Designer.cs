@@ -28,49 +28,61 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.dataGridView1 = new System.Windows.Forms.DataGridView();
-			this.btnConfirm = new System.Windows.Forms.Button();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-			this.SuspendLayout();
-			// 
-			// dataGridView1
-			// 
-			this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
-			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-			this.dataGridView1.Location = new System.Drawing.Point(12, 23);
-			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.RowHeadersWidth = 51;
-			this.dataGridView1.RowTemplate.Height = 24;
-			this.dataGridView1.Size = new System.Drawing.Size(387, 169);
-			this.dataGridView1.TabIndex = 0;
-			this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-			// 
-			// btnConfirm
-			// 
-			this.btnConfirm.Font = new System.Drawing.Font("Palatino Linotype", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnConfirm.Location = new System.Drawing.Point(453, 62);
-			this.btnConfirm.Name = "btnConfirm";
-			this.btnConfirm.Size = new System.Drawing.Size(135, 56);
-			this.btnConfirm.TabIndex = 1;
-			this.btnConfirm.Text = "Adauga";
-			this.btnConfirm.UseVisualStyleBackColor = true;
-			this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click_1);
-			// 
-			// FormIngrediente
-			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-			this.ClientSize = new System.Drawing.Size(626, 223);
-			this.Controls.Add(this.btnConfirm);
-			this.Controls.Add(this.dataGridView1);
-			this.Font = new System.Drawing.Font("Palatino Linotype", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.Name = "FormIngrediente";
-			this.Text = "Ingrediente";
-			this.Load += new System.EventHandler(this.FormIngrediente_Load_1);
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-			this.ResumeLayout(false);
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormIngrediente));
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnConfirm = new System.Windows.Forms.Button();
+            this.logo1 = new ProiectPAW.Logo();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 23);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(387, 169);
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // btnConfirm
+            // 
+            this.btnConfirm.Font = new System.Drawing.Font("Palatino Linotype", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirm.Location = new System.Drawing.Point(453, 62);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(135, 56);
+            this.btnConfirm.TabIndex = 1;
+            this.btnConfirm.Text = "Adauga";
+            this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click_1);
+            // 
+            // logo1
+            // 
+            this.logo1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("logo1.BackgroundImage")));
+            this.logo1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.logo1.Location = new System.Drawing.Point(513, 136);
+            this.logo1.Name = "logo1";
+            this.logo1.Size = new System.Drawing.Size(91, 84);
+            this.logo1.TabIndex = 2;
+            // 
+            // FormIngrediente
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(626, 223);
+            this.Controls.Add(this.logo1);
+            this.Controls.Add(this.btnConfirm);
+            this.Controls.Add(this.dataGridView1);
+            this.Font = new System.Drawing.Font("Palatino Linotype", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Name = "FormIngrediente";
+            this.Text = "Ingrediente";
+            this.Load += new System.EventHandler(this.FormIngrediente_Load_1);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.ResumeLayout(false);
 
 		}
 
@@ -78,5 +90,6 @@
 
 		private System.Windows.Forms.DataGridView dataGridView1;
 		private System.Windows.Forms.Button btnConfirm;
-	}
+        private Logo logo1;
+    }
 }

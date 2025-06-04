@@ -10,6 +10,8 @@ namespace ProiectPAW
     {
         public double densitate;
 
+        public override string Tip => "Solida";
+
         public MateriePrimaSolida(string nume, string um, double cost, double densitate)
             : base(nume,um, cost)  // Apelăm constructorul clasei de bază
         {

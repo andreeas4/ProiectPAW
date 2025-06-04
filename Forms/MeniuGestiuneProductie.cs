@@ -1,4 +1,5 @@
-﻿using ProiectPAW.Forms;
+﻿using ProiectPAW.BazaDeDate;
+using ProiectPAW.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -51,5 +52,38 @@ namespace ProiectPAW
 			FormStatistici formStatistici = new FormStatistici();
 			formStatistici.ShowDialog();
 		}
-	}
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void ImportaDate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                LegaturaBD.IncarcaMateriiSiProduse();
+                MessageBox.Show("Datele au fost încărcate din baza de date.", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Eroare la încărcare: " + ex.Message, "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void ExportaDate_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                LegaturaBD.SalveazaTot();
+                MessageBox.Show("Datele au fost salvate în baza de date.", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Eroare la salvare: " + ex.Message, "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+    }
 }

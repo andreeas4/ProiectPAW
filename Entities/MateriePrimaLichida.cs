@@ -12,7 +12,7 @@ namespace ProiectPAW
 
         public double vascozitate { get; set; } // Minim 1 cP (apa), maxim 3000 cP (miere)
 
-
+        public override string Tip => "Lichida";
         public MateriePrimaLichida(string nume, string um, double cost, double vascozitate)
             : base(nume,um,cost) // Apelează constructorul clasei de bază Materieprima
         {

@@ -9,6 +9,7 @@ namespace ProiectPAW
 {
     class Produs:IComparable,ICloneable,ICalculable
     {
+       
         private int codProdus;
         private string numeProdus;
         private double pret;
