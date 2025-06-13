@@ -18,7 +18,7 @@ A Windows Forms desktop application for managing raw materials, products, and pr
 | ![](Screenshots/MeniuPrincipal.png) | ![](Screenshots/FormMateriiPrime.png) | ![](Screenshots/ComunicareBazaDeDate.png) |
 
 | Product Input                    | Product Confirmation              | Ingredient Selection                       |
-|  | --------------------------------- | ------------------------------------------ |
+| -------------------------------- | --------------------------------- | ------------------------------------------ |
 | ![](Screenshots/FormProduse.png) | ![](Screenshots/FormProduse2.png) | ![](Screenshots/IngredienteSelectate1.png) |
 
 | Ingredient Confirmation                    | Cost Statistics                                   |
