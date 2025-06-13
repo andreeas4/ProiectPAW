@@ -20,7 +20,7 @@ A Windows Forms desktop application for managing raw materials, products, and pr
 | -------------------------------- | --------------------------------- | ------------------------------------------ |
 | ![](Screenshots/FormProduse.png) | ![](Screenshots/FormProduse2.png) | ![](Screenshots/IngredienteSelectate1.png) |
 | Ingredient Confirmation                    | Cost Statistics                                   |
-| ------------------------------------------ | ------------------------------------------------- |
+| --------------------------------- | --------------------------------------- |
 | ![](Screenshots/IngredienteSelectate2.png) | ![](Screenshots/StatisticiCostMediuProductie.png) |
 
 ---
